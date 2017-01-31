@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nicholas Shindler</title>
+    <!-- import fonts and stylesheets -->
+
+</head>
+
+<body>
+  <!-- App Body Here -->
+  <div id="app">
+
+    <div class="brewing">
+      <div class="left_img">
+        <img id='IMG' src="brewing.png">
+      </div>
+      <div class="left_text">
+        <p id="TXT">
+          <b>Brewing</b><br/>
+          <i>ideas, recipies, plans</i>
+        </p>
+      </div>
+    </div>
+    <div class="photography">
+      <div class="right_text">
+        <p id="TXT">
+          <b>Photography</b><br/>
+          <i>nature &amp; travel</i>
+        </p>
+      </div>
+      <div class="right_img">
+        <img id='IMG' src="photography.png">
+      </div>
+    </div>
+    <div class="design">
+      <div class="left_img">
+        <img id='IMG' src="design.png">
+      </div>
+      <div class="left_text">
+        <p id="TXT"><b>Design</b><br/>
+          <i>projects I’ve designed</i>
+        </p>
+      </div>
+    </div>
+    <div class="programing">
+      <div class="right_text">
+        <p id="TXT">
+          <b>Programing</b><br/>
+          <i>aplications and more</i>
+        </p>
+      </div>
+      <div class="right_img">
+        <img id='IMG' src="programing.png">
+      </div>
+    </div>
+    <p class="links">
+      <a id="cred_link" href="">Credentials</a> &emsp;| &emsp;
+      <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
+    </p>
+
+  </div>
+
+  <!-- external scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.1.1/vuex.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+  <!-- load individual components here... -->
+
+
+  <!-- load main vue, vuex pages -->
+  <script type="text/javascript" src="app/store.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+
+  <!-- start window -->
+  <script>
+    window.start("#app");
+  </script>
+
+</body>
+</html>

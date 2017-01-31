@@ -1,0 +1,11 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "stylus": "node_modules/stylus/bin/stylus --include-css -w app/frontend/styles/stylus/*.styl --out app/frontend/styles -I node_modules"
+  },
+  "author": "",
+  "license": "ISC"
+}
