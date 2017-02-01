@@ -4,27 +4,39 @@ body {
 }
 body h1 {
   font: bold small-caps 4vh Oswald;
+  letter-spacing: 0.1vw;
 }
 body h2 {
   font: bold 4vh Oswald;
+  letter-spacing: 0.1vw;
 }
 body h3 {
   font: 4vh Oswald;
+  letter-spacing: 0.1vw;
 }
 body h4 {
-  font: italic 3vh Oswald;
+  font: 3vh Oswald;
+  letter-spacing: 0.08vw;
 }
 body h5 {
   font: 3vh Raleway;
+  letter-spacing: 0.08vw;
 }
 body h6 {
-  font: italic 3vh Raleway;
+  font: italic 2.2vh Raleway;
+  letter-spacing: 0.08vw;
 }
 body p {
-  font-family: Raleway;
+  font-family: 2vh Raleway;
 }
 body a {
+  font: 2.5vh Oswald;
+  letter-spacing: 0.08vw;
+  text-decoration: none;
+}
+body ul {
   font-family: Oswald;
+  list-style-type: none;
   text-decoration: none;
 }
 body .myPage {

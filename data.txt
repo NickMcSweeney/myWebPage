@@ -1,0 +1,251 @@
+<div class="brewing">
+  <div class="left_img">
+    <img id='IMG' src="../../frontend/images/brewing.png">
+  </div>
+  <div class="left_text">
+    <p id="TXT">
+      <b>Brewing</b><br/>
+      <i>ideas, recipies, plans</i>
+    </p>
+  </div>
+</div>
+<div class="photography">
+  <div class="right_text">
+    <p id="TXT">
+      <b>Photography</b><br/>
+      <i>nature &amp; travel</i>
+    </p>
+  </div>
+  <div class="right_img">
+    <img id='IMG' src="../../frontend/images/photography.png">
+  </div>
+</div>
+<div class="design">
+  <div class="left_img">
+    <img id='IMG' src="../../frontend/images/design.png">
+  </div>
+  <div class="left_text">
+    <p id="TXT"><b>Design</b><br/>
+      <i>projects I’ve designed</i>
+    </p>
+  </div>
+</div>
+<div class="programing">
+  <div class="right_text">
+    <p id="TXT">
+      <b>Programing</b><br/>
+      <i>aplications and more</i>
+    </p>
+  </div>
+  <div class="right_img">
+    <img id='IMG' src="../../frontend/images/programing.png">
+  </div>
+</div>
+<p class="links">
+  <a id="cred_link" href="">Credentials</a> &emsp;| &emsp;
+  <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
+</p>
+
+
+------
+
+
+.main-menu .brewing,
+.main-menu .design {
+  position: absolute;
+  width: 60vw;
+  height: 10vh;
+  left: 22%;
+  opacity: 0.5;
+}
+.main-menu .brewing .left_img,
+.main-menu .design .left_img {
+  position: absolute;
+  right: 36vw;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+.main-menu .brewing .left_text,
+.main-menu .design .left_text {
+  position: absolute;
+  right: 15vw;
+  width: auto;
+  height: 9.8vh;
+  margin-left: 1vw;
+  display: inline-block;
+  vertical-align: middle;
+}
+.main-menu .design {
+  top: 50vh;
+}
+.main-menu .brewing {
+  top: 10vh;
+}
+.main-menu .photography,
+.main-menu .programing {
+  position: absolute;
+  width: 60vw;
+  height: 10vh;
+  right: 25%;
+  opacity: 0.5;
+}
+.main-menu .photography .right_img,
+.main-menu .programing .right_img {
+  position: absolute;
+  left: 38vw;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+.main-menu .photography .right_text,
+.main-menu .programing .right_text {
+  position: absolute;
+  left: 16vw;
+  width: auto;
+  height: 9.8vh;
+  margin-left: 1vw;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+.main-menu .photography {
+  top: 30vh;
+}
+.main-menu .programing {
+  top: 70vh;
+}
+.main-menu .brewing:hover,
+.main-menu .photography:hover,
+.main-menu .design:hover,
+.main-menu .programing:hover {
+  opacity: 1;
+}
+#TXT {
+  margin-top: 0;
+  padding-top: 1.6vh;
+  height: 8vh;
+  width: 20vw;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+#IMG {
+  z-index: 1;
+  width: auto;
+  height: 10vh;
+}
+.links {
+  vertical-align: middle;
+  height: 5vh;
+  padding-top: 3vh;
+  position: absolute;
+  bottom: 3vh;
+  left: 32vw;
+  color: #fff;
+}
+.links #insta {
+  vertical-align: middle;
+  margin-bottom: 1vh;
+  height: 3.6vh;
+  width: auto;
+}
+
+
+----
+
+.main-menu
+  position: absolute;
+  z-index: -2;
+  left: 100vw;
+  top: 0;
+  display: inline-block;
+  width: 80vw;
+  min-width: 620px;
+  height: 100vh;
+  min-height: 500px;
+  margin: 0 0 0 0;
+  /*background-color: gray;*/
+  .brewing, .design
+    position: absolute;
+    width: 60vw
+    height: 10vh
+    left: 22%;
+    opacity: .5
+    .left_img
+      position: absolute
+      right: 36vw
+      width: auto
+      height: auto
+      display: inline-block
+      vertical-align: middle
+    .left_text
+      position: absolute;
+      right: 15vw
+      width: auto
+      height: 9.8vh
+      margin-left: 1vw
+      display: inline-block
+      vertical-align: middle
+  .design
+    top: 50vh
+  .brewing
+    top: 10vh
+
+  .photography, .programing
+    position: absolute;
+    width: 60vw
+    height: 10vh
+    right: 25%
+    opacity: .5
+    .right_img
+      position: absolute;
+      left: 38vw
+      width: auto
+      height: auto
+      display: inline-block
+      vertical-align: middle
+    .right_text
+      position: absolute
+      left: 16vw
+      width: auto
+      height: 9.8vh
+      margin-left: 1vw
+      display: inline-block
+      vertical-align: middle
+      text-align: right
+  .photography
+    top: 30vh
+  .programing
+    top: 70vh
+  .brewing:hover, .photography:hover, .design:hover, .programing:hover
+    opacity: 1
+
+#TXT
+  margin-top: 0
+  padding-top: 1.6vh
+  height: 8vh
+  width: 20vw
+  border-top: 2px solid white
+  border-bottom: 2px solid white
+  color: db_font_color
+#IMG
+  z-index: 1
+  width: auto
+  height: 10vh
+
+.links
+  vertical-align: middle
+  height: 5vh
+  padding-top: 3vh
+  position: absolute
+  bottom: 3vh
+  left: 32vw
+  color: db_font_color
+  #insta
+    vertical-align: middle
+    margin-bottom: 1vh
+    height: 3.6vh
+    width: auto

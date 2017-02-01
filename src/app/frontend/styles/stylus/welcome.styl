@@ -1,6 +1,7 @@
 // Variables
 dark_background = #0F0E0F
 db_font_color = #FFFFFF
+db_highlight_font = #28C8F9
 
 // Conditionals
 
@@ -8,263 +9,83 @@ db_font_color = #FFFFFF
 // Global style elements
 body
   background-color: dark_background
-a {
-  font-family: Oswald;
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 1px;
-  color: db_font_color;
-}
-a:hover {
-  color: #28C8F9;
-  z-index: 2;
-}
-li {
-  margin-bottom: 2vh;
-  text-decoration: none;
-  font-family: Oswald;
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 1px;
-  color: #FFFFFF;
-}
-ul{
-  padding: 0;
-  list-style-type: none;
-  text-decoration: none;
-  font-family: Oswald;
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 1px;
-  color: db_font_color;
-}
-.side-bar{
-  display: inline-block;
-  width: 100vw;
-  min-width: 180px;
-  height: 100vh;
-  min-height: 500px;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-}
-.main-menu {
-  position: absolute;
-  z-index: -2;
-  left: 100vw;
-  top: 0;
-  display: inline-block;
-  width: 80vw;
-  min-width: 620px;
-  height: 100vh;
-  min-height: 500px;
-  margin: 0 0 0 0;
-  /*background-color: gray;*/
-}
-.side-bar_menu{
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 16vw;
-  min-width: 180px;
-  height: 100vh;
-  min-height: 500px;
-  max-height: 100vh;
-  background-color: rgba(43,42,44,0.75);
-}
-.background-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-  .cvr-arrow {
-    position: absolute;
-    right: 5vw;
-    top: 40vh;
-    height: 20vh;
-    width: auto;
-    z-index: 1;
-  }
-  .name_title {
-    width: 85%;
-    height: auto;
-    font-family: Oswald;
-    font-size: 22px;
-    font-weight: bold;
-    line-height: 32px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    border: 2px solid #C0BDBD;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    padding-left: 5%;
-  }
-  .side_menu {
-    margin-top: 25vh;
-    margin-right: auto;
-    margin-left: auto;
-    width: 85%;
-    height: auto;
-    font-family: Oswald;
-    font-size: 16px;
-    line-height: 25px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-  }
-  .side_description {
-    display: none;
-    margin-top: 25vh;
-    margin-right: auto;
-    margin-left: auto;
-    width: 85%;
-    height: auto;
-    font-family: Oswald;
-    font-size: 16px;
-    line-height: 25px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-  }
-  .prompt {
-    position: absolute;
-    right: 10vw;
-    top: 45vh;
-    width: auto;
-    height: auto;
-    font-family: Oswald;
-    font-size: 2.5vh;
-    text-align: right;
-    line-height: 30px;
-    letter-spacing: 2px;
-    color: #FFFFFF;
-  }
-  .prompt:hover {
-    color: #28C8F9;
-  }
-  .brewing {
-    position: absolute;
-    width: 60vw;
-    height: 10vh;
-    top: 10vh;
-    left: 22%;
-    opacity: .5;
-  }
-  .brewing:hover {
-    opacity: 1;
-  }
-  .photography {
-    position: absolute;
-    width: 60vw;
-    height: 10vh;
-    top: 30vh;
-    right: 25%;
-    opacity: .5;
-  }
-  .photography:hover {
-    opacity: 1;
-  }
-  .design {
-    position: absolute;
-    width: 60vw;
-    height: 10vh;
-    top: 50vh;
-    left: 22%;
-    opacity: .5;
-  }
-  .design:hover {
-    opacity: 1;
-  }
-  .programing {
-    position: absolute;
-    width: 60vw;
-    height: 10vh;
-    top: 70vh;
-    right: 25%;
-    opacity: .5;
-  }
-  .programing:hover {
-    opacity: 1;
-  }
-  .left_img {
-    position: absolute;
-    right: 36vw;
-    width: auto;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .left_text {
-    position: absolute;
-    right: 15vw;
-    width: auto;
-    height: 9.8vh;
-    margin-left: 1vw;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .right_img {
-    position: absolute;
-    left: 38vw;
-    width: auto;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .right_text {
-    position: absolute;
-    left: 16vw;
-    width: auto;
-    height: 9.8vh;
-    margin-left: 1vw;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: right;
-  }
-  #TXT {
-    margin-top: 0;
-    padding-top: 1.6vh;
-    height: 8vh;
-    width: 20vw;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    font-size: 2.2vh;
-    line-height: 20px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-  }
-  #IMG {
-    z-index: 1;
-    width: auto;
-    height: 10vh;
-  }
-  .links {
-    vertical-align: middle;
-    height: 5vh;
-    padding-top: 3vh;
-    position: absolute;
-    bottom: 3vh;
-    left: 32vw;
-    font-family: Oswald;
-    font-size: 16px;
-    line-height: 25px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-  }
-  #insta {
-    vertical-align: middle;
-    margin-bottom: 1vh;
-    height: 3.6vh;
-    width: auto;
-  }
-  #cont {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-  #hide {
-    display: ;
-  }
+  a
+    color: db_font_color
+  a:hover
+    color: db_highlight_font
+    z-index: 2
+  ul
+    padding: 0
+  li
+    margin-bottom: 2vh
+
+.side-bar
+  display: inline-block
+  width: 100vw
+  min-width: 180px
+  height: 100vh
+  min-height: 500px
+  margin: 0 0 0 0
+  padding: 0 0 0 0
+  #cont
+    position: absolute
+    width: 100vw
+    height: 100vh
+    top: 0
+    left: 0
+    z-index: 0
+    .background-img
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+  #hide
+    display:
+    .cvr-arrow
+      position: absolute
+      right: 5vw
+      top: 40vh
+      height: 20vh
+      width: auto
+      z-index: 1
+    .prompt
+      position: absolute
+      right: 10vw
+      top: 45vh
+      width: auto
+      height: auto
+      text-align: right
+      line-height: 30px
+      letter-spacing: 2px
+      color: db_font_color
+    .prompt:hover
+      color: db_highlight_font
+  .side-bar_menu
+    z-index: 1
+    position: absolute
+    top: 0
+    left: 0
+    width: 16vw
+    min-width: 180px
+    height: 100vh
+    min-height: 500px
+    max-height: 100vh
+    background-color: rgba(43,42,44,0.75)
+    .name_title
+      width: 85%
+      height: auto
+      color: db_font_color
+      border: 2px solid #C0BDBD
+      margin-left: auto
+      margin-right: auto
+      margin-top: 5%
+      padding-left: 5%
+    .side_menu, .side_description
+      margin-top: 25vh
+      margin-right: auto
+      margin-left: auto
+      width: 85%
+      height: auto
+      color: db_font_color
+    .side_description
+      display: none
