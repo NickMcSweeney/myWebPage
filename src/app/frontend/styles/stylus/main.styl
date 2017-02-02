@@ -3,6 +3,7 @@ dark_background = #0F0E0F
 db_font_color = #FFFFFF
 db_highlight_font = #28C8F9
 
+
 // Conditionals
 
 
@@ -19,23 +20,105 @@ body
     padding: 0
   li
     margin-bottom: 2vh
-  .img
+  .right_btn, .left_btn
+    margin-left: auto
+    margin-right: auto
+    display: block
+    opacity: .5
+
+@media (min-width: 901px), (min-height: 601px)
+  .right_btn, .left_btn
+    margin-top: 15vh
+    width: 50vw
+    height: 12vh
+  #IMG
     display: inline-block
-    vertical-align: middle
     width: auto
-    height: 10vh
-
-.right_btn
-  position: absolute
-  width: 60vw
-  height: 10vh
-  right: 25%
-  opacity: .5
+    height: 12vh
   .img
-
-    float: right
-    width:
+    vertical-align: middle
+    display: inline-block
+    width: 32vw
+    overflow: hidden
   .text
     display: inline-block
+    border-top: 2px solid white
+    border-bottom: 2px solid white
+    height: 12vh
+    width: 18vw
+    padding: 0 0 0 0
+    margin: 0 0 0 0
+    h1, h2, h3, h4, h5, h6
+      padding: 1vh 1vh 1vh 1vh
+      margin: 0 0 0 0
+      // margin: .1vh 8vw .1vh 1vw
+      vertical-align: middle
+  .right_btn
+    .img
+      margin-left: 0
+    .text
+      float: left
+      margin-right: 0
+      text-align: right
+  .right_btn:hover
+    opacity: 1
+
+  .left_btn
+    .img
+      float: left
+      margin-right: 0
+    .text
+      margin-left: 0
+      text-align: left
+  .left_btn:hover
+    opacity: 1
+
+@media screen and (max-width: 900px), (max-height: 600px)
+  .right_btn, .left_btn
+    margin-top: 100px
+    width: 550px
+    height: 70px
+  #IMG
+    display: inline-block
+    width: 364px
+    height: 70px
+  .img
     vertical-align: middle
-    float: left
+    display: inline-block
+    width: 364px
+    overflow: hidden
+  .text
+    display: inline-block
+    border-top: 2px solid white
+    border-bottom: 2px solid white
+    height: 70px
+    width: 186px
+    padding: 0 0 0 0
+    margin: 0 0 0 0
+    h1, h2, h3, h4, h5, h6
+      padding: 10px 10px 10px 10px
+      margin: 0 0 0 0
+      // margin: .1vh 8vw .1vh 1vw
+      vertical-align: middle
+    h4
+      font-size: 16px
+    h6
+      font-size: 12px
+  .right_btn
+    .img
+      margin-left: 0
+    .text
+      float: left
+      margin-right: 0
+      text-align: right
+    .right_btn:hover
+      opacity: 1
+
+  .left_btn
+    .img
+      float: left
+    .text
+      margin-left: 0
+      text-align: left
+    .left_btn:hover
+      opacity: 1

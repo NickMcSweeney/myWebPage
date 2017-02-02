@@ -15,20 +15,135 @@ body ul {
 body li {
   margin-bottom: 2vh;
 }
-.right_btn {
-  position: absolute;
-  width: 60vw;
-  height: 10vh;
-  right: 25%;
+body .right_btn,
+body .left_btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   opacity: 0.5;
 }
-.right_btn .img {
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
+@media (min-width: 901px), (min-height: 601px) {
+  .right_btn,
+  .left_btn {
+    margin-top: 15vh;
+    width: 50vw;
+    height: 12vh;
+  }
+  #IMG {
+    display: inline-block;
+    width: auto;
+    height: 12vh;
+  }
+  .img {
+    vertical-align: middle;
+    display: inline-block;
+    width: 32vw;
+    overflow: hidden;
+  }
+  .text {
+    display: inline-block;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    height: 12vh;
+    width: 18vw;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  .text h1,
+  .text h2,
+  .text h3,
+  .text h4,
+  .text h5,
+  .text h6 {
+    padding: 1vh 1vh 1vh 1vh;
+    margin: 0 0 0 0;
+    vertical-align: middle;
+  }
+  .right_btn .img {
+    margin-left: 0;
+  }
+  .right_btn .text {
+    float: left;
+    margin-right: 0;
+    text-align: right;
+  }
+  .right_btn:hover {
+    opacity: 1;
+  }
+  .left_btn .img {
+    float: left;
+    margin-right: 0;
+  }
+  .left_btn .text {
+    margin-left: 0;
+    text-align: left;
+  }
+  .left_btn:hover {
+    opacity: 1;
+  }
 }
-.right_btn .text {
-  display: inline-block;
-  vertical-align: middle;
-  float: left;
+@media screen and (max-width: 900px), (max-height: 600px) {
+  .right_btn,
+  .left_btn {
+    margin-top: 100px;
+    width: 550px;
+    height: 70px;
+  }
+  #IMG {
+    display: inline-block;
+    width: 364px;
+    height: 70px;
+  }
+  .img {
+    vertical-align: middle;
+    display: inline-block;
+    width: 364px;
+    overflow: hidden;
+  }
+  .text {
+    display: inline-block;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    height: 70px;
+    width: 186px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  .text h1,
+  .text h2,
+  .text h3,
+  .text h4,
+  .text h5,
+  .text h6 {
+    padding: 10px 10px 10px 10px;
+    margin: 0 0 0 0;
+    vertical-align: middle;
+  }
+  .text h4 {
+    font-size: 16px;
+  }
+  .text h6 {
+    font-size: 12px;
+  }
+  .right_btn .img {
+    margin-left: 0;
+  }
+  .right_btn .text {
+    float: left;
+    margin-right: 0;
+    text-align: right;
+  }
+  .right_btn .right_btn:hover {
+    opacity: 1;
+  }
+  .left_btn .img {
+    float: left;
+  }
+  .left_btn .text {
+    margin-left: 0;
+    text-align: left;
+  }
+  .left_btn .left_btn:hover {
+    opacity: 1;
+  }
 }

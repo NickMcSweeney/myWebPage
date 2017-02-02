@@ -34,7 +34,7 @@
   <div class="right_text">
     <p id="TXT">
       <b>Programing</b><br/>
-      <i>aplications and more</i>
+      <i>applications and more</i>
     </p>
   </div>
   <div class="right_img">
