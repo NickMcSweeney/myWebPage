@@ -1,0 +1,244 @@
+.hidden_menu {
+  display: inline-block;
+  float: right;
+  color: #fff;
+  margin-top: 7vh;
+}
+@media (min-width: 20px) {
+  .hidden_menu {
+    width: 20vw;
+  }
+}
+@media (min-width: 320px) {
+  .hidden_menu {
+    width: 42vw;
+  }
+}
+@media (min-width: 600px) {
+  .hidden_menu {
+    width: 70vw;
+  }
+}
+@media (min-width: 1000px) {
+  .hidden_menu {
+    width: 82vw;
+  }
+}
+.myView {
+  margin-left: auto;
+  margin-right: auto;
+}
+.myView .right_btn,
+.myView .left_btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  opacity: 0.5;
+}
+.myView #IMG {
+  display: inline-block;
+  width: auto;
+}
+.myView .img {
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+}
+.myView .text {
+  display: inline-block;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+.myView h1,
+.myView h2,
+.myView h3,
+.myView h4,
+.myView h5,
+.myView h6 {
+  margin: 0 0 0 0;
+  vertical-align: middle;
+}
+.myView .right_btn .img {
+  margin-left: 0;
+}
+.myView .right_btn .text {
+  float: left;
+  margin-right: 0;
+  text-align: right;
+}
+.myView .right_btn:hover {
+  opacity: 1;
+}
+.myView .left_btn .img {
+  float: left;
+  margin-right: 0;
+}
+.myView .left_btn .text {
+  margin-left: 0;
+  text-align: left;
+}
+.myView .left_btn:hover {
+  opacity: 1;
+}
+@media (min-width: 256px) {
+  .myView .right_btn,
+  .myView .left_btn,
+  .myView #IMG,
+  .myView .text {
+    height: 24px;
+  }
+}
+@media (min-width: 512px) {
+  .myView .right_btn,
+  .myView .left_btn,
+  .myView #IMG,
+  .myView .text {
+    height: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .myView .right_btn,
+  .myView .left_btn,
+  .myView #IMG,
+  .myView .text {
+    height: 72px;
+  }
+}
+@media (min-width: 2048px) {
+  .myView .right_btn,
+  .myView .left_btn,
+  .myView #IMG,
+  .myView .text {
+    height: 96px;
+  }
+}
+@media (max-width: 128px) {
+  .myView .right_btn,
+  .myView .left_btn,
+  .myView #IMG,
+  .myView .text {
+    height: 10vh;
+  }
+}
+@media (min-width: 256px) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 100px;
+    width: 200px;
+  }
+}
+@media (min-width: 512px) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 75px;
+    width: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 60px;
+    width: 600px;
+  }
+}
+@media (min-width: 2048px) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 50px;
+    width: 800px;
+  }
+}
+@media (max-width: 128px) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 10vh;
+    width: 40vw;
+  }
+}
+@media (min-width: 256px) {
+  .myView .text {
+    width: 72px;
+  }
+}
+@media (min-width: 512px) {
+  .myView .text {
+    width: 144px;
+  }
+}
+@media (min-width: 1024px) {
+  .myView .text {
+    width: 216px;
+  }
+}
+@media (min-width: 2048px) {
+  .myView .text {
+    width: 288px;
+  }
+}
+@media (max-width: 128px) {
+  .myView .text {
+    width: 12vh;
+  }
+}
+@media (min-width: 256px) {
+  .myView h4 {
+    font: 7px Oswald;
+    padding: 3px 3px 0px 3px;
+  }
+}
+@media (min-width: 512px) {
+  .myView h4 {
+    font: 14px Oswald;
+    padding: 6px 6px 0px 6px;
+  }
+}
+@media (min-width: 1024px) {
+  .myView h4 {
+    font: 21px Oswald;
+    padding: 9px 9px 0px 9px;
+  }
+}
+@media (min-width: 2048px) {
+  .myView h4 {
+    font: 28px Oswald;
+    padding: 12px 12px 0px 12px;
+  }
+}
+@media (max-width: 128px) {
+  .myView h4 {
+    font: 3vh Oswald;
+    padding: 1vh 1vw 0 1vh;
+  }
+}
+@media (min-width: 256px) {
+  .myView h6 {
+    font: italic 5px Raleway;
+    padding: 0px 3px 3px 3px;
+  }
+}
+@media (min-width: 512px) {
+  .myView h6 {
+    font: italic 10px Raleway;
+    padding: 0px 6px 6px 6px;
+  }
+}
+@media (min-width: 1024px) {
+  .myView h6 {
+    font: italic 15px Raleway;
+    padding: 0px 9px 9px 9px;
+  }
+}
+@media (min-width: 2048px) {
+  .myView h6 {
+    font: italic 20px Raleway;
+    padding: 0px 12px 12px 12px;
+  }
+}
+@media (max-width: 128px) {
+  .myView h6 {
+    font: italic 2.4vh Raleway;
+    padding: 0 1vw 1vw 1vh;
+  }
+}

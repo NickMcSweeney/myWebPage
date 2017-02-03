@@ -1,0 +1,109 @@
+// Variables
+dark_background = #0F0E0F
+db_font_color = #FFFFFF
+db_highlight_font = #28C8F9
+
+
+mySelectors = '.right_btn, .left_btn, #IMG, .text'
+
+// Conditionals
+
+
+// Global style elements
+.hidden_menu
+  display: inline-block
+  @media (min-width: 20px)
+    width: 20vw
+  @media (min-width: 320px)
+    width: 42vw
+  @media (min-width: 600px)
+    width: 70vw
+  @media (min-width: 1000px)
+    width: 82vw
+  float: right
+  color: db_font_color
+  margin-top: 7vh
+.myView
+  margin-left: auto
+  margin-right: auto
+  .right_btn, .left_btn
+    margin-left: auto
+    margin-right: auto
+    display: block
+    opacity: .5
+  #IMG
+    display: inline-block
+    width: auto
+  .img
+    vertical-align: middle
+    display: inline-block
+    overflow: hidden
+  .text
+    display: inline-block
+    border-top: 2px solid white
+    border-bottom: 2px solid white
+    padding: 0 0 0 0
+    margin: 0 0 0 0
+  h1, h2, h3, h4, h5, h6
+    margin: 0 0 0 0
+    vertical-align: middle
+
+  .right_btn
+    .img
+      margin-left: 0
+    .text
+      float: left
+      margin-right: 0
+      text-align: right
+  .right_btn:hover
+    opacity: 1
+
+  .left_btn
+    .img
+      float: left
+      margin-right: 0
+    .text
+      margin-left: 0
+      text-align: left
+  .left_btn:hover
+    opacity: 1
+
+  // variable sizing:
+
+  {mySelectors}
+    for i in 1..4
+      @media (min-width: 2**(i+7)px)
+        height: 24px*i
+    @media (max-width: 2**(7)px)
+      height: 10vh
+
+  .right_btn, .left_btn
+    for i in 1..4
+      @media (min-width: 2**(i+7)px)
+        margin-top: 100px*(3/(2+i))
+        width: 200px*i
+    @media (max-width: 2**(7)px)
+      margin-top: 10vh
+      width: 40vw
+  .text
+    for i in 1..4
+      @media (min-width: 2**(i+7)px)
+        width: 72px*i
+    @media (max-width: 2**(7)px)
+      width: 12vh
+  h4
+    for i in 1..4
+      @media (min-width: 2**(i+7)px)
+        font: 7px*i Oswald
+        padding: 3px*i 3px*i 0px*i 3px*i
+    @media (max-width: 2**(7)px)
+      font: 3vh Oswald
+      padding: 1vh 1vw 0 1vh
+  h6
+    for i in 1..4
+      @media (min-width: 2**(i+7)px)
+        font: italic 5px*i Raleway
+        padding: 0px*i 3px*i 3px*i 3px*i
+    @media (max-width: 2**(7)px)
+      font: italic 2.4vh Raleway
+      padding: 0 1vw 1vw 1vh

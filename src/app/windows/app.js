@@ -4,10 +4,13 @@ function start(el) {
       el: el,
 
       components: {
-        
+        'welcome': window.components.welcome
       },
-      template: `
 
+      store: Web.store,
+
+      template: `
+        <welcome></welcome>
       `
     });
-}
+};
