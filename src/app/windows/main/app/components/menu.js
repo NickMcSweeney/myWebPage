@@ -1,8 +1,7 @@
-window.components = window.components || {};
-window.components.mainMenu = {
+module.exports = {
 
       components: {
-        'menu-btn': window.components.menuBtn
+        'menu-btn': require("./menuBtn.js")
       },
 
       template: `
@@ -15,6 +14,16 @@ window.components.mainMenu = {
         <menu-btn btn_float="left_btn" name="programing" btn_img="frontend/images/programing.png">
           <h4 slot="title">Programing</h4>
           <h6 slot="sub_title">applications and more</h6>
+        </menu-btn>
+
+        <menu-btn btn_float="right_btn" name="brewing" btn_img="frontend/images/brewing.png">
+          <h4 slot="title">Brewing</h4>
+          <h6 slot="sub_title">ideas, recipies, plans</h6>
+        </menu-btn>
+
+        <menu-btn btn_float="left_btn" name="design" btn_img="frontend/images/design.png">
+          <h4 slot="title">Design</h4>
+          <h6 slot="sub_title">projects I've designed</h6>
         </menu-btn>
       </div>
       `

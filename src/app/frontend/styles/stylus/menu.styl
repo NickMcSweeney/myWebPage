@@ -23,6 +23,24 @@ mySelectors = '.right_btn, .left_btn, #IMG, .text'
   float: right
   color: db_font_color
   margin-top: 7vh
+  #btm-bar
+    position: absolute
+    top: 90vh
+    right: 0
+    width: inherit
+    height: 10vh
+    font-size: 3vh
+    .links
+      margin-left: auto
+      margin-right: auto
+      vertical-align: middle
+      height: 5vh
+      color: db_font_color
+      #insta
+        vertical-align: middle
+        margin-bottom: 1vh
+        height: 3.6vh
+        width: auto
 .myView
   margin-left: auto
   margin-right: auto
@@ -80,8 +98,10 @@ mySelectors = '.right_btn, .left_btn, #IMG, .text'
   .right_btn, .left_btn
     for i in 1..4
       @media (min-width: 2**(i+7)px)
-        margin-top: 100px*(3/(2+i))
+        margin-top: 100px*(5/(6+i))
         width: 200px*i
+      @media (min-aspect-ratio: i)
+        margin-top: 100px*(5/(6+i))/(3*i/2)
     @media (max-width: 2**(7)px)
       margin-top: 10vh
       width: 40vw

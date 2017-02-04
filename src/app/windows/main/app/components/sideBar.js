@@ -1,5 +1,4 @@
-window.components = window.components || {};
-window.components.sideBar = {
+module.exports = {
 
       components: {
       },

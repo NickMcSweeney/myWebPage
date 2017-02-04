@@ -24,6 +24,27 @@
     width: 82vw;
   }
 }
+.hidden_menu #btm-bar {
+  position: absolute;
+  top: 90vh;
+  right: 0;
+  width: inherit;
+  height: 10vh;
+  font-size: 3vh;
+}
+.hidden_menu #btm-bar .links {
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  height: 5vh;
+  color: #fff;
+}
+.hidden_menu #btm-bar .links #insta {
+  vertical-align: middle;
+  margin-bottom: 1vh;
+  height: 3.6vh;
+  width: auto;
+}
 .myView {
   margin-left: auto;
   margin-right: auto;
@@ -125,22 +146,40 @@
 @media (min-width: 256px) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 100px;
+    margin-top: 71.42857142857143px;
     width: 200px;
+  }
+}
+@media (min-aspect-ratio: 1) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 71.42857142857143px/1;
   }
 }
 @media (min-width: 512px) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 75px;
+    margin-top: 62.5px;
     width: 400px;
+  }
+}
+@media (min-aspect-ratio: 2) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 62.5px/2;
   }
 }
 @media (min-width: 1024px) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 60px;
+    margin-top: 55.55555555555556px;
     width: 600px;
+  }
+}
+@media (min-aspect-ratio: 3) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 55.55555555555556px/3;
   }
 }
 @media (min-width: 2048px) {
@@ -148,6 +187,12 @@
   .myView .left_btn {
     margin-top: 50px;
     width: 800px;
+  }
+}
+@media (min-aspect-ratio: 4) {
+  .myView .right_btn,
+  .myView .left_btn {
+    margin-top: 50px/4;
   }
 }
 @media (max-width: 128px) {

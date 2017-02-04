@@ -1,6 +1,5 @@
-window.components = window.components || {};
-window.components.coverPanel = {
-
+module.exports = {
+  
       components: {
       },
 

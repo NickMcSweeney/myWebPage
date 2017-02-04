@@ -1,5 +1,4 @@
-window.components = window.components || {};
-window.components.menuBtn = {
+module.exports = {
 
   props: ['btn_img','name','btn_float'],
 

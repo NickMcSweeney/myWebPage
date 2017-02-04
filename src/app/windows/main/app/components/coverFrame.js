@@ -1,5 +1,4 @@
-window.components = window.components || {};
-window.components.coverFrame = {
+module.exports = {
 
       components: {
       },

@@ -1,16 +1,22 @@
-function start(el) {
+const Vue = require("vue/dist/vue.js");
+const Vuex = require("vuex");
 
-    return new Vue({
-      el: el,
+Vue.use(Vuex);
+const store = new Vuex.Store(require("../store"));
 
-      components: {
-        'welcome': window.components.welcome
-      },
+Vue.use(require("@welocalize/useful-shit").vue);
 
-      store: Web.store,
+return new Vue({
+  el: '#app',
 
-      template: `
-        <welcome></welcome>
-      `
-    });
-};
+  components: {
+    'welcome': require("./main/app/index.js")
+  },
+
+  // store: Web.store,
+  store,
+
+  template: `
+    <welcome></welcome>
+  `
+});

@@ -1,11 +1,17 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "",
+  "description": "my web page & portfolio app-thingy",
   "main": "index.js",
   "scripts": {
-    "stylus": "node_modules/stylus/bin/stylus --include-css -w app/frontend/styles/stylus/*.styl --out app/frontend/styles -I node_modules"
+    "stylus": "node_modules/stylus/bin/stylus --include-css -w app/frontend/styles/stylus/*.styl --out app/frontend/styles -I node_modules",
+    "bundle": "watchify app/windows/app.js -o app/windows/bundle.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@welocalize/useful-shit": "^1.1.5",
+    "vue": "^2.1.10",
+    "vuex": "^2.1.1"
+  }
 }
