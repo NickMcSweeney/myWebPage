@@ -3,7 +3,7 @@ module.exports = {
   props: ['btn_img','name','btn_float'],
 
   template: `
-    <div :class="btn_float" @click="nav" :name="name">
+    <div :class="btn_float" @click="$store.state.window=this.name" :name="name">
       <div class="img">
         <img id='IMG' :src="btn_img">
       </div>
@@ -16,7 +16,7 @@ module.exports = {
 
   methods: {
     nav() {
-      console.log("go to next page")
+      this.store.state.window=this.name
     }
   }
 }

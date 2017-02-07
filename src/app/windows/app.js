@@ -10,13 +10,15 @@ return new Vue({
   el: '#app',
 
   components: {
-    'welcome': require("./main/app/index.js")
+    'welcome': require("./main/app/index.js"),
+    'photography': require("./photography/app/index.js")
   },
-
-  // store: Web.store,
+  
   store,
 
   template: `
-    <welcome></welcome>
+    <transition name="component-fade" mode="out-in">
+      <component :is="$store.state.window"></component>
+    </transition>
   `
 });

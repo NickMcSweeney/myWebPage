@@ -3,7 +3,11 @@ module.exports = {
 
   state: {
     menu_view: false,
-    style_width: "width:100vw"
+    style_width: "width:100vw",
+    window: "photography",
+    galleries: true,
+    gallery: false,
+    gallery_show: ""
   },
 
   mutations: {
@@ -14,7 +18,7 @@ module.exports = {
       state.style_width = value;
     },
   }
-  
+
 }
 
 },{}],2:[function(require,module,exports){
@@ -30,18 +34,20 @@ return new Vue({
   el: '#app',
 
   components: {
-    'welcome': require("./main/app/index.js")
+    'welcome': require("./main/app/index.js"),
+    'photography': require("./photography/app/index.js")
   },
-
-  // store: Web.store,
+  
   store,
 
   template: `
-    <welcome></welcome>
+    <transition name="component-fade" mode="out-in">
+      <component :is="$store.state.window"></component>
+    </transition>
   `
 });
 
-},{"../store":1,"./main/app/index.js":9,"@welocalize/useful-shit":10,"vue/dist/vue.js":34,"vuex":35}],3:[function(require,module,exports){
+},{"../store":1,"./main/app/index.js":9,"./photography/app/index.js":15,"@welocalize/useful-shit":16,"vue/dist/vue.js":40,"vuex":41}],3:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -160,7 +166,7 @@ module.exports = {
   props: ['btn_img','name','btn_float'],
 
   template: `
-    <div :class="btn_float" @click="nav" :name="name">
+    <div :class="btn_float" @click="$store.state.window=this.name" :name="name">
       <div class="img">
         <img id='IMG' :src="btn_img">
       </div>
@@ -173,7 +179,7 @@ module.exports = {
 
   methods: {
     nav() {
-      console.log("go to next page")
+      this.store.state.window=this.name
     }
   }
 }
@@ -237,17 +243,87 @@ module.exports = {
 };
 
 },{"./components/coverFrame.js":3,"./components/coverPanel.js":4,"./components/linkBar.js":5,"./components/menu.js":6,"./components/sideBar.js":8}],10:[function(require,module,exports){
+module.exports = {
+    template: `
+      
+    `
+}
+
+},{}],11:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],12:[function(require,module,exports){
+module.exports = {
+
+    components: {
+      'photo-link': require("./links.js"),
+    },
+
+    data: function () {
+      return {
+        gallerys: [
+          {name: "", img_src: "", orient_class: "", loc: ""},
+        ]
+      }
+    },
+
+    template: `
+      <div class="lib">
+        <photo-link v-for="gallery in gallerys" :name="gallery.name" :src="gallery.ing_src" :style="gallery.orient_class"></photo-link>
+      </div>
+    `
+}
+
+},{"./links.js":13}],13:[function(require,module,exports){
+module.exports = {
+
+    props: ['name', 'src', 'style', 'loc'],
+
+    template: `
+      <img :class="style" :name="name" :src="src" @click="$store.state.gallery_show=loc">
+    `
+}
+
+},{}],14:[function(require,module,exports){
+module.exports = {
+    template: `
+      <div class="title-bar">
+        <h1>Photography</h1>
+      </div>
+    `
+}
+
+},{}],15:[function(require,module,exports){
+module.exports = {
+
+      components: {
+        'page-title': require("./components/title.js"),
+        'photo-lib': require("./components/lib.js"),
+        'photo-gallery': require("./components/gallery.js"),
+        'footer-bar': require("./components/footer.js")
+      },
+
+      template: `
+      <div class="photo_page">
+        <page-title id="photo_title"></page-title>
+        <photo-lib></photo-lib>
+        <photo-gallery></photo-galery>
+        <footer-bar></footer-bar>
+      </div>
+      `
+};
+
+},{"./components/footer.js":10,"./components/gallery.js":11,"./components/lib.js":12,"./components/title.js":14}],16:[function(require,module,exports){
 "use strict";
 module.exports = require("./src");
 
-},{"./src":11}],11:[function(require,module,exports){
+},{"./src":17}],17:[function(require,module,exports){
 "use strict";
 module.exports = {
   vue: require("./vue"),
   // electron: require("./electron"),
 };
 
-},{"./vue":30}],12:[function(require,module,exports){
+},{"./vue":36}],18:[function(require,module,exports){
 
 "use strict";
 
@@ -320,7 +396,7 @@ module.exports = {
   },
 };
 
-},{}],13:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 
 "use strict";
 
@@ -404,7 +480,7 @@ module.exports = {
   },
 };
 
-},{}],14:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 const components = {
   tab: require("./tab"),
   "tab-list": require("./tabList"),
@@ -422,7 +498,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, components);
 
-},{"./dropdownMenu":12,"./fileInput":13,"./modal":15,"./tab":16,"./tabList":17,"./tagList":18}],15:[function(require,module,exports){
+},{"./dropdownMenu":18,"./fileInput":19,"./modal":21,"./tab":22,"./tabList":23,"./tagList":24}],21:[function(require,module,exports){
 
 "use strict";
 
@@ -483,7 +559,7 @@ module.exports = {
   },
 }
 
-},{}],16:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 // tab component must be globally defined for now rather than as a local component inside tabList
 // because transcluded components render in the outer scope rather than in tabList's scope,
 // so locally defined components in tabList will not be available to the outer component.
@@ -511,7 +587,7 @@ module.exports = {
   },
 }
 
-},{}],17:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 
 "use strict";
 
@@ -634,7 +710,7 @@ module.exports = {
   },
 };
 
-},{}],18:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -760,7 +836,7 @@ module.exports = {
   }
 };
 
-},{}],19:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = {
   name: "click-away",
   
@@ -788,7 +864,7 @@ module.exports = {
   },
 };
 
-},{}],20:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = {
   name: 'focus',
   inserted(el) {
@@ -796,7 +872,7 @@ module.exports = {
   },
 };
 
-},{}],21:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 const directives = {
   "click-away": require("./clickAway"),
   "prevent-paste": require("./preventPaste"),
@@ -811,7 +887,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, directives);
 
-},{"./clickAway":19,"./focus":20,"./preventPaste":22}],22:[function(require,module,exports){
+},{"./clickAway":25,"./focus":26,"./preventPaste":28}],28:[function(require,module,exports){
 module.exports = {
   name: 'prevent-paste',
   inserted(el) {
@@ -823,7 +899,7 @@ module.exports = {
   },
 };
 
-},{}],23:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function currencyFilter(value) {
   if (typeof value === "string") {
     return value.toLocaleString("en-US", { style: 'currency', currency: "USD" });
@@ -834,7 +910,7 @@ module.exports = function currencyFilter(value) {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = function(value) {
   const date = new Date(value);
   const format = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -842,7 +918,7 @@ module.exports = function(value) {
   return formatter.format(date);
 };
 
-},{}],25:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = function humanize(value) {
   if (!_.isString(value)) {
     console.warn("you must pass a string to the humanize filter");
@@ -851,7 +927,7 @@ module.exports = function humanize(value) {
   return value.split('_').map(seg => seg.charAt(0).toUpperCase() + seg.slice(1)).join(' ');
 };
 
-},{}],26:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 const filters = {
   humanize: require("./humanize"),
   capitalize: (str) => str.charAt(0).toUpperCase() + str.substr(1),
@@ -871,7 +947,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, filters);
 
-},{"./currency":23,"./date":24,"./humanize":25,"./secsToTimecode":27,"./time":28,"./timeOfDay":29}],27:[function(require,module,exports){
+},{"./currency":29,"./date":30,"./humanize":31,"./secsToTimecode":33,"./time":34,"./timeOfDay":35}],33:[function(require,module,exports){
 module.exports = function secsToTimecode(secs) {
   try {
     return `${Math.floor(secs / 60 | 0)}:${padZero(Math.floor(secs % 60))}`;
@@ -880,7 +956,7 @@ module.exports = function secsToTimecode(secs) {
   }
 };
 
-},{}],28:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports = function timeFilter(value) {
   const date = new Date(value);
   const format = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
@@ -888,7 +964,7 @@ module.exports = function timeFilter(value) {
   return formatter.format(date);
 };
 
-},{}],29:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = function timeOfDay(time) {
   time = time instanceof Date ? time : new Date(time);
   let hours = time.getHours();
@@ -901,7 +977,7 @@ module.exports = function timeOfDay(time) {
   }
 };
 
-},{}],30:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 const tools = {
   components: require("./components"),
   directives: require("./directives"),
@@ -919,12 +995,12 @@ tools.install = install;
 
 module.exports = tools;
 
-},{"./components":14,"./directives":21,"./filters":26,"./mixins":31}],31:[function(require,module,exports){
+},{"./components":20,"./directives":27,"./filters":32,"./mixins":37}],37:[function(require,module,exports){
 module.exports = {
   validator: require('./validator/index.js')
 };
 
-},{"./validator/index.js":32}],32:[function(require,module,exports){
+},{"./validator/index.js":38}],38:[function(require,module,exports){
 'use strict';
 
 const exampleSchema = {
@@ -1076,7 +1152,7 @@ function _getElements(inst) {
   }).filter($field => $field != undefined );
 }
 
-},{"./rules":33}],33:[function(require,module,exports){
+},{"./rules":39}],39:[function(require,module,exports){
 'use strict';
 
 
@@ -1132,7 +1208,7 @@ module.exports = {
   }
 };
 
-},{}],34:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 (function (global){
 /*!
  * Vue.js v2.1.10
@@ -9704,7 +9780,7 @@ return Vue$3;
 })));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],35:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * vuex v2.1.1
  * (c) 2016 Evan You

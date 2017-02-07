@@ -153,7 +153,7 @@
 @media (min-aspect-ratio: 1) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 71.42857142857143px/1;
+    margin-top: 47.61904761904762px;
   }
 }
 @media (min-width: 512px) {
@@ -166,7 +166,7 @@
 @media (min-aspect-ratio: 2) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 62.5px/2;
+    margin-top: 20.833333333333332px;
   }
 }
 @media (min-width: 1024px) {
@@ -179,7 +179,7 @@
 @media (min-aspect-ratio: 3) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 55.55555555555556px/3;
+    margin-top: 12.345679012345679px;
   }
 }
 @media (min-width: 2048px) {
@@ -192,7 +192,7 @@
 @media (min-aspect-ratio: 4) {
   .myView .right_btn,
   .myView .left_btn {
-    margin-top: 50px/4;
+    margin-top: 8.333333333333334px;
   }
 }
 @media (max-width: 128px) {

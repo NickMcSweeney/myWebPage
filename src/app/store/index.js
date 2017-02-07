@@ -2,7 +2,11 @@ module.exports = {
 
   state: {
     menu_view: false,
-    style_width: "width:100vw"
+    style_width: "width:100vw",
+    window: "photography",
+    galleries: true,
+    gallery: false,
+    gallery_show: ""
   },
 
   mutations: {
@@ -13,5 +17,5 @@ module.exports = {
       state.style_width = value;
     },
   }
-  
+
 }
