@@ -4,10 +4,10 @@ module.exports = {
   state: {
     menu_view: false,
     style_width: "width:100vw",
-    window: "photography",
+    window: "welcome",
     galleries: true,
     gallery: false,
-    gallery_show: ""
+    show_lib: "photo-lib"
   },
 
   mutations: {
@@ -197,11 +197,11 @@ module.exports = {
         </h1>
         <transition name='fade-delay' mode="out-in">
           <ul class="side_menu" v-if="!$store.state.menu_view">
-            <li><a href="">Brewing</a><br></li>
-            <li><a href="">Photography</a><br></li>
-            <li><a href="">Design</a><br></li>
-            <li><a href="">Programing</a><br></li>
-            <li><a href="">Credentials</a></li>
+            <li><a>Brewing</a></li>
+            <li><a>Photography</a></li>
+            <li><a>Design</a></li>
+            <li><a>Programing</a></li>
+            <li><a>Credentials</a></li>
           </ul>
           <h5 class="side_description" v-if="$store.state.menu_view">
           This is some kind of blurb about some kind of bulshit kind of stuff.
@@ -211,6 +211,12 @@ module.exports = {
       `
 
 };
+
+// <li><router-link to="/brewing">Brewing</router-link></li>
+// <li><router-link to="/photography">Photography</router-link></li>
+// <li><router-link to="/design">Design</router-link></li>
+// <li><router-link to="/programing">Programing</router-link></li>
+// <li><router-link to="/credentials">Credentials</router-link></li>
 
 },{}],9:[function(require,module,exports){
 module.exports = {
@@ -245,13 +251,21 @@ module.exports = {
 },{"./components/coverFrame.js":3,"./components/coverPanel.js":4,"./components/linkBar.js":5,"./components/menu.js":6,"./components/sideBar.js":8}],10:[function(require,module,exports){
 module.exports = {
     template: `
-      
+      <p class="links">
+        <a id="cred_link" href="">Credentials</a> &emsp;| &emsp;
+        <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
+      </p>
     `
 }
 
 },{}],11:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],12:[function(require,module,exports){
+module.exports = {
+    template: `
+      
+    `
+}
+
+},{}],12:[function(require,module,exports){
 module.exports = {
 
     components: {
@@ -261,7 +275,10 @@ module.exports = {
     data: function () {
       return {
         gallerys: [
-          {name: "", img_src: "", orient_class: "", loc: ""},
+          {name: "test_001", img_src: "./frontend/images/photo/001.svg", orient_class: "", loc: ""},
+          {name: "test_002", img_src: "", orient_class: "", loc: ""},
+          {name: "test_003", img_src: "", orient_class: "", loc: ""},
+          {name: "test_004", img_src: "", orient_class: "", loc: ""},
         ]
       }
     },
@@ -305,8 +322,9 @@ module.exports = {
       template: `
       <div class="photo_page">
         <page-title id="photo_title"></page-title>
-        <photo-lib></photo-lib>
-        <photo-gallery></photo-galery>
+        <transition name="component-fade" mode="out-in">
+          <component :is="$store.state.show_lib"></component>
+        </transition>
         <footer-bar></footer-bar>
       </div>
       `

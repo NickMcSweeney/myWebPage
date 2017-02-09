@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/",
+    "component": "welcome",
+    "name": "welcome"
+  },
+  {
+    "path": "/photography",
+    "component": "photography",
+    "name": "photography"
+  }
+]

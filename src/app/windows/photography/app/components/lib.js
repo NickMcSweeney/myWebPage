@@ -7,7 +7,10 @@ module.exports = {
     data: function () {
       return {
         gallerys: [
-          {name: "", img_src: "", orient_class: "", loc: ""},
+          {name: "test_001", img_src: "./frontend/images/photo/001.svg", orient_class: "", loc: ""},
+          {name: "test_002", img_src: "", orient_class: "", loc: ""},
+          {name: "test_003", img_src: "", orient_class: "", loc: ""},
+          {name: "test_004", img_src: "", orient_class: "", loc: ""},
         ]
       }
     },

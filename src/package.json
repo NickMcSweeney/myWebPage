@@ -12,6 +12,7 @@
   "dependencies": {
     "@welocalize/useful-shit": "^1.1.5",
     "vue": "^2.1.10",
+    "vue-router": "^2.2.0",
     "vuex": "^2.1.1"
   }
 }

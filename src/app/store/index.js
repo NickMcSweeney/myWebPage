@@ -3,10 +3,10 @@ module.exports = {
   state: {
     menu_view: false,
     style_width: "width:100vw",
-    window: "photography",
+    window: "welcome",
     galleries: true,
     gallery: false,
-    gallery_show: ""
+    show_lib: "photo-lib"
   },
 
   mutations: {
