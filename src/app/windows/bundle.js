@@ -183,12 +183,15 @@ process.umask = function() { return 0; };
 },{}],2:[function(require,module,exports){
 module.exports =  {
 
-    'welcome': require("../windows/main/app/index.js"),
-    'photography': require("../windows/photography/app/index.js")
-
+    'welcome': require("../windows/main/index.js"),
+    'photography': require("../windows/photography/index.js"),
+    'design': require("../windows/design/index.js"),
+    'brewing': require("../windows/brewing/index.js"),
+    'programing': require("../windows/code/index.js"),
+    'credentials': require("../windows/credentials/index.js"),
 }
 
-},{"../windows/main/app/index.js":14,"../windows/photography/app/index.js":21}],3:[function(require,module,exports){
+},{"../windows/brewing/index.js":8,"../windows/code/index.js":10,"../windows/credentials/index.js":12,"../windows/design/index.js":14,"../windows/main/index.js":22,"../windows/photography/index.js":29}],3:[function(require,module,exports){
 "use strict";
 const Vue = require("vue/dist/vue.js");
 const VueRouter = require('vue-router');
@@ -224,7 +227,7 @@ module.exports = {
   buildRouter,
 };
 
-},{"vue-router":46,"vue/dist/vue.js":47}],4:[function(require,module,exports){
+},{"vue-router":54,"vue/dist/vue.js":55}],4:[function(require,module,exports){
 module.exports=[
   {
     "path": "/",
@@ -232,10 +235,39 @@ module.exports=[
     "component": "welcome"
   },
   {
-    "path": "/photography",
+    "path": "/photography/:id",
     "component": "photography",
-    "name": "photography"
-  }
+      "children": [
+        {
+          "path": "gallery",
+          "component": "photo-gallery"
+        },
+        {
+          "path": "lib",
+          "component": "photo-lib"
+        }
+      ]
+  },
+  {
+    "path": "/design",
+    "name": "desing",
+    "component": "design"
+  },
+  {
+    "path": "/programing",
+    "name": "programing",
+    "component": "programing"
+  },
+  {
+    "path": "/brewing",
+    "name": "brewing",
+    "component": "brewing"
+  },
+  {
+    "path": "/credentials",
+    "name": "credentials",
+    "component": "credentials"
+  },
 ]
 
 },{}],5:[function(require,module,exports){
@@ -268,8 +300,12 @@ const VueRouter = require('vue-router');
 const startup = require("../frontend/scripts/vueStartup.js");
 
 startup.registerComponents(require('../components'));
-startup.registerComponents(require('./main/app/components'));
-startup.registerComponents(require('./photography/app/components'));
+startup.registerComponents(require("./photography/components"));
+startup.registerComponents(require("./main/components"));
+startup.registerComponents(require("./design/components"));
+startup.registerComponents(require("./brewing/components"));
+startup.registerComponents(require("./code/components"));
+startup.registerComponents(require("./credentials/components"));
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
@@ -287,15 +323,40 @@ return new Vue({
   store,
 
   template: `
-    <transition name="component-fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
+      <transition name="component-fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
   `
 });
   // <router-view></router-view>
 // <component :is="$store.state.window"></component>
 
-},{"../components":2,"../frontend/scripts/vueStartup.js":3,"../routes.json":4,"../store":5,"./main/app/components":9,"./photography/app/components":17,"@welocalize/useful-shit":22,"vue-router":46,"vue/dist/vue.js":47,"vuex":49,"vuex-router-sync":48}],7:[function(require,module,exports){
+},{"../components":2,"../frontend/scripts/vueStartup.js":3,"../routes.json":4,"../store":5,"./brewing/components":7,"./code/components":9,"./credentials/components":11,"./design/components":13,"./main/components":17,"./photography/components":25,"@welocalize/useful-shit":30,"vue-router":54,"vue/dist/vue.js":55,"vuex":57,"vuex-router-sync":56}],7:[function(require,module,exports){
+module.exports = {
+  
+}
+
+},{}],8:[function(require,module,exports){
+module.exports = {
+
+      template: `
+
+      `
+}
+
+},{}],9:[function(require,module,exports){
+arguments[4][7][0].apply(exports,arguments)
+},{"dup":7}],10:[function(require,module,exports){
+arguments[4][8][0].apply(exports,arguments)
+},{"dup":8}],11:[function(require,module,exports){
+arguments[4][7][0].apply(exports,arguments)
+},{"dup":7}],12:[function(require,module,exports){
+arguments[4][8][0].apply(exports,arguments)
+},{"dup":8}],13:[function(require,module,exports){
+arguments[4][7][0].apply(exports,arguments)
+},{"dup":7}],14:[function(require,module,exports){
+arguments[4][8][0].apply(exports,arguments)
+},{"dup":8}],15:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -319,7 +380,7 @@ module.exports = {
 
 };
 
-},{}],8:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = {
   
       components: {
@@ -361,7 +422,7 @@ module.exports = {
 
 };
 
-},{}],9:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = {
     'main-menu': require("./menu.js"),
     'side-bar': require("./sideBar.js"),
@@ -371,7 +432,7 @@ module.exports = {
     'menu-btn': require("./menuBtn.js")
 }
 
-},{"./coverFrame.js":7,"./coverPanel.js":8,"./linkBar.js":10,"./menu.js":11,"./menuBtn.js":12,"./sideBar.js":13}],10:[function(require,module,exports){
+},{"./coverFrame.js":15,"./coverPanel.js":16,"./linkBar.js":18,"./menu.js":19,"./menuBtn.js":20,"./sideBar.js":21}],18:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -386,7 +447,7 @@ module.exports = {
 
 };
 
-},{}],11:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -395,22 +456,22 @@ module.exports = {
 
       template: `
       <div class="myView">
-        <menu-btn btn_float="right_btn" name="photography" btn_img="frontend/images/photography.png">
+        <menu-btn navTo="/photography/lib" btn_float="right_btn" name="photography" btn_img="frontend/images/photography.png">
           <h4 slot="title">Photography</h4>
           <h6 slot="sub_title">nature &amp; travel</h6>
         </menu-btn>
 
-        <menu-btn btn_float="left_btn" name="programing" btn_img="frontend/images/programing.png">
+        <menu-btn navTo="/programing" btn_float="left_btn" name="programing" btn_img="frontend/images/programing.png">
           <h4 slot="title">Programing</h4>
           <h6 slot="sub_title">applications and more</h6>
         </menu-btn>
 
-        <menu-btn btn_float="right_btn" name="brewing" btn_img="frontend/images/brewing.png">
+        <menu-btn navTo="/brewing" btn_float="right_btn" name="brewing" btn_img="frontend/images/brewing.png">
           <h4 slot="title">Brewing</h4>
           <h6 slot="sub_title">ideas, recipies, plans</h6>
         </menu-btn>
 
-        <menu-btn btn_float="left_btn" name="design" btn_img="frontend/images/design.png">
+        <menu-btn navTo="/design" btn_float="left_btn" name="design" btn_img="frontend/images/design.png">
           <h4 slot="title">Design</h4>
           <h6 slot="sub_title">projects I've designed</h6>
         </menu-btn>
@@ -418,31 +479,27 @@ module.exports = {
       `
 };
 
-},{"./menuBtn.js":12}],12:[function(require,module,exports){
+},{"./menuBtn.js":20}],20:[function(require,module,exports){
 module.exports = {
 
-  props: ['btn_img','name','btn_float'],
+  props: ['btn_img','name','btn_float','navTo'],
 
   template: `
-    <div :class="btn_float" @click="$store.state.window=this.name" :name="name">
-      <div class="img">
-        <img id='IMG' :src="btn_img">
+    <router-link :to="navTo">
+      <div :class="btn_float" :name="name">
+        <div class="img">
+          <img id='IMG' :src="btn_img">
+        </div>
+        <div class="text">
+          <slot name="title"></slot>
+          <slot name="sub_title"></slot>
+        </div>
       </div>
-      <div class="text">
-        <slot name="title"></slot>
-        <slot name="sub_title"></slot>
-      </div>
-    </div>
-  `,
-
-  methods: {
-    nav() {
-      this.store.state.window=this.name
-    }
-  }
+    </router-link>
+  `
 }
 
-},{}],13:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -456,9 +513,9 @@ module.exports = {
         <transition name='fade-delay' mode="out-in">
           <ul class="side_menu" v-if="!$store.state.menu_view">
             <li><router-link to="/brewing">Brewing</router-link></li>
-            <li><router-link to="/photography">Photography</router-link></li>
+            <li><router-link to="/photography/lib">Photography</router-link></li>
             <li><router-link to="/design">Design</router-link></li>
-            <li><router-link to="/programing">Programing</router-link></li>
+            <li><router-link to="/code">Programing</router-link></li>
             <li><router-link to="/credentials">Credentials</router-link></li>
           </ul>
           <h5 class="side_description" v-if="$store.state.menu_view">
@@ -477,7 +534,7 @@ module.exports = {
 // <li><a>Programing</a></li>
 // <li><a>Credentials</a></li>
 
-},{}],14:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = {
 
       template: `
@@ -499,7 +556,7 @@ module.exports = {
       `
 };
 
-},{}],15:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = {
     template: `
       <p class="links">
@@ -509,14 +566,14 @@ module.exports = {
     `
 }
 
-},{}],16:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = {
     template: `
       
     `
 }
 
-},{}],17:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = {
 
   'photo-link': require("./links.js"),
@@ -526,7 +583,7 @@ module.exports = {
   'footer-bar': require("./footer.js")
 }
 
-},{"./footer.js":15,"./gallery.js":16,"./lib.js":18,"./links.js":19,"./title.js":20}],18:[function(require,module,exports){
+},{"./footer.js":23,"./gallery.js":24,"./lib.js":26,"./links.js":27,"./title.js":28}],26:[function(require,module,exports){
 module.exports = {
 
     components: {
@@ -551,7 +608,7 @@ module.exports = {
     `
 }
 
-},{}],19:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = {
 
     props: ['name', 'src', 'style', 'loc'],
@@ -561,7 +618,7 @@ module.exports = {
     `
 }
 
-},{}],20:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = {
     template: `
       <div class="title-bar">
@@ -570,32 +627,32 @@ module.exports = {
     `
 }
 
-},{}],21:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = {
 
       template: `
-      <div class="photo_page">
-        <page-title id="photo_title"></page-title>
-        <transition name="component-fade" mode="out-in">
-          <component :is="$store.state.show_lib"></component>
-        </transition>
-        <footer-bar></footer-bar>
-      </div>
+        <div class="photo_page">
+          <page-title id="photo_title"></page-title>
+          <transition name="component-fade" mode="out-in">
+            <component :is="$store.state.show_lib"></component>
+          </transition>
+          <footer-bar></footer-bar>
+        </div>
       `
 };
 
-},{}],22:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 module.exports = require("./src");
 
-},{"./src":23}],23:[function(require,module,exports){
+},{"./src":31}],31:[function(require,module,exports){
 "use strict";
 module.exports = {
   vue: require("./vue"),
   // electron: require("./electron"),
 };
 
-},{"./vue":42}],24:[function(require,module,exports){
+},{"./vue":50}],32:[function(require,module,exports){
 
 "use strict";
 
@@ -668,7 +725,7 @@ module.exports = {
   },
 };
 
-},{}],25:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 
 "use strict";
 
@@ -752,7 +809,7 @@ module.exports = {
   },
 };
 
-},{}],26:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 const components = {
   tab: require("./tab"),
   "tab-list": require("./tabList"),
@@ -770,7 +827,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, components);
 
-},{"./dropdownMenu":24,"./fileInput":25,"./modal":27,"./tab":28,"./tabList":29,"./tagList":30}],27:[function(require,module,exports){
+},{"./dropdownMenu":32,"./fileInput":33,"./modal":35,"./tab":36,"./tabList":37,"./tagList":38}],35:[function(require,module,exports){
 
 "use strict";
 
@@ -831,7 +888,7 @@ module.exports = {
   },
 }
 
-},{}],28:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 // tab component must be globally defined for now rather than as a local component inside tabList
 // because transcluded components render in the outer scope rather than in tabList's scope,
 // so locally defined components in tabList will not be available to the outer component.
@@ -859,7 +916,7 @@ module.exports = {
   },
 }
 
-},{}],29:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 
 "use strict";
 
@@ -982,7 +1039,7 @@ module.exports = {
   },
 };
 
-},{}],30:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -1108,7 +1165,7 @@ module.exports = {
   }
 };
 
-},{}],31:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports = {
   name: "click-away",
   
@@ -1136,7 +1193,7 @@ module.exports = {
   },
 };
 
-},{}],32:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports = {
   name: 'focus',
   inserted(el) {
@@ -1144,7 +1201,7 @@ module.exports = {
   },
 };
 
-},{}],33:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 const directives = {
   "click-away": require("./clickAway"),
   "prevent-paste": require("./preventPaste"),
@@ -1159,7 +1216,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, directives);
 
-},{"./clickAway":31,"./focus":32,"./preventPaste":34}],34:[function(require,module,exports){
+},{"./clickAway":39,"./focus":40,"./preventPaste":42}],42:[function(require,module,exports){
 module.exports = {
   name: 'prevent-paste',
   inserted(el) {
@@ -1171,7 +1228,7 @@ module.exports = {
   },
 };
 
-},{}],35:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports = function currencyFilter(value) {
   if (typeof value === "string") {
     return value.toLocaleString("en-US", { style: 'currency', currency: "USD" });
@@ -1182,7 +1239,7 @@ module.exports = function currencyFilter(value) {
   }
 };
 
-},{}],36:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module.exports = function(value) {
   const date = new Date(value);
   const format = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -1190,7 +1247,7 @@ module.exports = function(value) {
   return formatter.format(date);
 };
 
-},{}],37:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 module.exports = function humanize(value) {
   if (!_.isString(value)) {
     console.warn("you must pass a string to the humanize filter");
@@ -1199,7 +1256,7 @@ module.exports = function humanize(value) {
   return value.split('_').map(seg => seg.charAt(0).toUpperCase() + seg.slice(1)).join(' ');
 };
 
-},{}],38:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 const filters = {
   humanize: require("./humanize"),
   capitalize: (str) => str.charAt(0).toUpperCase() + str.substr(1),
@@ -1219,7 +1276,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, filters);
 
-},{"./currency":35,"./date":36,"./humanize":37,"./secsToTimecode":39,"./time":40,"./timeOfDay":41}],39:[function(require,module,exports){
+},{"./currency":43,"./date":44,"./humanize":45,"./secsToTimecode":47,"./time":48,"./timeOfDay":49}],47:[function(require,module,exports){
 module.exports = function secsToTimecode(secs) {
   try {
     return `${Math.floor(secs / 60 | 0)}:${padZero(Math.floor(secs % 60))}`;
@@ -1228,7 +1285,7 @@ module.exports = function secsToTimecode(secs) {
   }
 };
 
-},{}],40:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 module.exports = function timeFilter(value) {
   const date = new Date(value);
   const format = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
@@ -1236,7 +1293,7 @@ module.exports = function timeFilter(value) {
   return formatter.format(date);
 };
 
-},{}],41:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 module.exports = function timeOfDay(time) {
   time = time instanceof Date ? time : new Date(time);
   let hours = time.getHours();
@@ -1249,7 +1306,7 @@ module.exports = function timeOfDay(time) {
   }
 };
 
-},{}],42:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 const tools = {
   components: require("./components"),
   directives: require("./directives"),
@@ -1267,12 +1324,12 @@ tools.install = install;
 
 module.exports = tools;
 
-},{"./components":26,"./directives":33,"./filters":38,"./mixins":43}],43:[function(require,module,exports){
+},{"./components":34,"./directives":41,"./filters":46,"./mixins":51}],51:[function(require,module,exports){
 module.exports = {
   validator: require('./validator/index.js')
 };
 
-},{"./validator/index.js":44}],44:[function(require,module,exports){
+},{"./validator/index.js":52}],52:[function(require,module,exports){
 'use strict';
 
 const exampleSchema = {
@@ -1424,7 +1481,7 @@ function _getElements(inst) {
   }).filter($field => $field != undefined );
 }
 
-},{"./rules":45}],45:[function(require,module,exports){
+},{"./rules":53}],53:[function(require,module,exports){
 'use strict';
 
 
@@ -1480,7 +1537,7 @@ module.exports = {
   }
 };
 
-},{}],46:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function (process){
 /**
   * vue-router v2.2.0
@@ -3763,7 +3820,7 @@ if (inBrowser && window.Vue) {
 module.exports = VueRouter;
 
 }).call(this,require('_process'))
-},{"_process":1}],47:[function(require,module,exports){
+},{"_process":1}],55:[function(require,module,exports){
 (function (global){
 /*!
  * Vue.js v2.1.10
@@ -12335,7 +12392,7 @@ return Vue$3;
 })));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],48:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 exports.sync = function (store, router, options) {
   var moduleName = (options || {}).moduleName || 'route'
 
@@ -12392,7 +12449,7 @@ function cloneRoute (to, from) {
   return Object.freeze(clone)
 }
 
-},{}],49:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 /**
  * vuex v2.1.1
  * (c) 2016 Evan You

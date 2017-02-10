@@ -4,8 +4,12 @@ const VueRouter = require('vue-router');
 const startup = require("../frontend/scripts/vueStartup.js");
 
 startup.registerComponents(require('../components'));
-startup.registerComponents(require('./main/app/components'));
-startup.registerComponents(require('./photography/app/components'));
+startup.registerComponents(require("./photography/components"));
+startup.registerComponents(require("./main/components"));
+startup.registerComponents(require("./design/components"));
+startup.registerComponents(require("./brewing/components"));
+startup.registerComponents(require("./code/components"));
+startup.registerComponents(require("./credentials/components"));
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
@@ -23,9 +27,9 @@ return new Vue({
   store,
 
   template: `
-    <transition name="component-fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
+      <transition name="component-fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
   `
 });
   // <router-view></router-view>

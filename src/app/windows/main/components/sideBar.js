@@ -13,7 +13,7 @@ module.exports = {
             <li><router-link to="/brewing">Brewing</router-link></li>
             <li><router-link to="/photography/lib">Photography</router-link></li>
             <li><router-link to="/design">Design</router-link></li>
-            <li><router-link to="/programing">Programing</router-link></li>
+            <li><router-link to="/code">Programing</router-link></li>
             <li><router-link to="/credentials">Credentials</router-link></li>
           </ul>
           <h5 class="side_description" v-if="$store.state.menu_view">

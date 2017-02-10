@@ -5,8 +5,37 @@
     "component": "welcome"
   },
   {
-    "path": "/photography",
+    "path": "/photography/:id",
     "component": "photography",
-    "name": "photography"
-  }
+      "children": [
+        {
+          "path": "gallery",
+          "component": "photo-gallery"
+        },
+        {
+          "path": "lib",
+          "component": "photo-lib"
+        }
+      ]
+  },
+  {
+    "path": "/design",
+    "name": "desing",
+    "component": "design"
+  },
+  {
+    "path": "/programing",
+    "name": "programing",
+    "component": "programing"
+  },
+  {
+    "path": "/brewing",
+    "name": "brewing",
+    "component": "brewing"
+  },
+  {
+    "path": "/credentials",
+    "name": "credentials",
+    "component": "credentials"
+  },
 ]
