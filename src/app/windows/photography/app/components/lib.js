@@ -1,7 +1,7 @@
 module.exports = {
 
     components: {
-      'photo-link': require("./links.js"),
+      
     },
 
     data: function () {

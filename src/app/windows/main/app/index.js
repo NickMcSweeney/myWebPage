@@ -1,13 +1,5 @@
 module.exports = {
 
-      components: {
-        'main-menu': require("./components/menu.js"),
-        'side-bar': require("./components/sideBar.js"),
-        'cover-panel': require("./components/coverPanel.js"),
-        'cover-frame': require("./components/coverFrame.js"),
-        'link-bar': require("./components/linkBar.js")
-      },
-
       template: `
       <div class="welcome_panel">
 
