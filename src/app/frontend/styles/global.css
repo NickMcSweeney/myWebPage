@@ -1,6 +1,7 @@
 body {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+  margin: 0;
+  padding: 0;
+  background: #0f0e0f;
 }
 body h1 {
   font: bold small-caps 4vh Oswald;
@@ -27,7 +28,7 @@ body h6 {
   letter-spacing: 0.08vw;
 }
 body p {
-  font-family: 2vh Raleway;
+  font: 2vh Raleway;
 }
 body a {
   font: 2.5vh Oswald;

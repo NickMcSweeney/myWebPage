@@ -235,7 +235,7 @@ module.exports=[
     "component": "welcome"
   },
   {
-    "path": "/photography/:id",
+    "path": "/photography",
     "component": "photography",
       "children": [
         {
@@ -279,7 +279,8 @@ module.exports = {
     window: "welcome",
     galleries: true,
     gallery: false,
-    show_lib: "photo-lib"
+    show_lib: "photo-lib",
+    gallery: "gallery_001"
   },
 
   mutations: {
@@ -440,7 +441,10 @@ module.exports = {
 
       template: `
       <p class="links">
-        <a id="cred_link" href="">Credentials</a> &emsp;| &emsp;
+        <router-link to="/credentials">
+          <a id="cred_link">Credentials</a>
+        </router-link>
+        &emsp;| &emsp;
         <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
       </p>
       `
@@ -559,8 +563,11 @@ module.exports = {
 },{}],23:[function(require,module,exports){
 module.exports = {
     template: `
-      <p class="links">
-        <a id="cred_link" href="">Credentials</a> &emsp;| &emsp;
+      <p class="links" align="center">
+        <router-link to="/credentials">
+          <a id="cred_link">Credentials</a>
+        </router-link>
+        &emsp;| &emsp;
         <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
       </p>
     `
@@ -568,9 +575,19 @@ module.exports = {
 
 },{}],24:[function(require,module,exports){
 module.exports = {
-    template: `
-      
-    `
+
+  data: function () {
+    return {
+      img_source: "frontend/images/photo/" + this.$store.state.gallery + ".png"
+    }
+  },
+
+  template: `
+    <div>
+      <h1>hello world</h1>
+      <img :src=img_source>
+    </div>
+  `
 }
 
 },{}],25:[function(require,module,exports){
@@ -581,29 +598,44 @@ module.exports = {
   'photo-lib': require("./lib.js"),
   'photo-gallery': require("./gallery.js"),
   'footer-bar': require("./footer.js")
+  
 }
 
 },{"./footer.js":23,"./gallery.js":24,"./lib.js":26,"./links.js":27,"./title.js":28}],26:[function(require,module,exports){
 module.exports = {
 
     components: {
-      
+
     },
 
     data: function () {
       return {
         gallerys: [
-          {name: "test_001", img_src: "./frontend/images/photo/001.svg", orient_class: "", loc: ""},
-          {name: "test_002", img_src: "", orient_class: "", loc: ""},
-          {name: "test_003", img_src: "", orient_class: "", loc: ""},
-          {name: "test_004", img_src: "", orient_class: "", loc: ""},
+          {name: "test_001", img_src: "frontend/images/photo/001.svg", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_002", img_src: "frontend/images/photo/002.svg", orient_class: "portrait", style: "lg_port"},
+          {name: "test_003", img_src: "frontend/images/photo/003.png", orient_class: "portrait", style: "lg_port"},
+          {name: "test_004", img_src: "frontend/images/photo/004.png", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_005", img_src: "frontend/images/photo/003.png", orient_class: "portrait", style: "lg_port"},
+          {name: "test_006", img_src: "frontend/images/photo/002.svg", orient_class: "portrait", style: "lg_port"},
+          {name: "test_007", img_src: "frontend/images/photo/004.png", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_008", img_src: "frontend/images/photo/001.svg", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_009", img_src: "frontend/images/photo/002.svg", orient_class: "portrait", style: "lg_port"},
+          {name: "test_010", img_src: "frontend/images/photo/004.png", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_011", img_src: "frontend/images/photo/001.svg", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_012", img_src: "frontend/images/photo/003.png", orient_class: "portrait", style: "lg_port"},
+          {name: "test_013", img_src: "frontend/images/photo/002.svg", orient_class: "portrait", style: "lg_port"},
+          {name: "test_014", img_src: "frontend/images/photo/001.svg", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_015", img_src: "frontend/images/photo/004.png", orient_class: "landscape", style: "sm_lan"},
+          {name: "test_014", img_src: "frontend/images/photo/003.png", orient_class: "portrait", style: "lg_port"},
         ]
       }
     },
 
     template: `
-      <div class="lib">
-        <photo-link v-for="gallery in gallerys" :name="gallery.name" :src="gallery.ing_src" :style="gallery.orient_class"></photo-link>
+      <div class="lib" align="center">
+        <ul>
+          <li v-for="gallery in gallerys"><photo-link :class="gallery.orient_class" :name="gallery.name" :source="gallery.img_src" :imgStyle="gallery.style"></photo-link></li>
+        </ul>
       </div>
     `
 }
@@ -611,17 +643,31 @@ module.exports = {
 },{}],27:[function(require,module,exports){
 module.exports = {
 
-    props: ['name', 'src', 'style', 'loc'],
+    props: ['name', 'source', 'imgStyle'],
+
+    methods: {
+      toggle_gallery () {
+        console.log(this.$store.state.gallery)
+        this.$store.state.gallery = this.name
+        console.log(this.$store.state.gallery)
+      }
+    },
 
     template: `
-      <img :class="style" :name="name" :src="src" @click="$store.state.gallery_show=loc">
+    <div @click="toggle_gallery">
+      <router-link to="/photography/gallery">
+        <!--  -->
+          <img :class="imgStyle" :name="name" :src="source"></img>
+        <!--  -->
+      </router-link>
+    </div>
     `
 }
 
 },{}],28:[function(require,module,exports){
 module.exports = {
     template: `
-      <div class="title-bar">
+      <div class="title-bar" align="center">
         <h1>Photography</h1>
       </div>
     `
@@ -634,7 +680,7 @@ module.exports = {
         <div class="photo_page">
           <page-title id="photo_title"></page-title>
           <transition name="component-fade" mode="out-in">
-            <component :is="$store.state.show_lib"></component>
+            <router-view></router-view>
           </transition>
           <footer-bar></footer-bar>
         </div>

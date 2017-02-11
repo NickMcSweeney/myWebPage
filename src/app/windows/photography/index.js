@@ -4,7 +4,7 @@ module.exports = {
         <div class="photo_page">
           <page-title id="photo_title"></page-title>
           <transition name="component-fade" mode="out-in">
-            <component :is="$store.state.show_lib"></component>
+            <router-view></router-view>
           </transition>
           <footer-bar></footer-bar>
         </div>

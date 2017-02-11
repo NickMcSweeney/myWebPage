@@ -5,7 +5,7 @@
     "component": "welcome"
   },
   {
-    "path": "/photography/:id",
+    "path": "/photography",
     "component": "photography",
       "children": [
         {

@@ -6,7 +6,8 @@ module.exports = {
     window: "welcome",
     galleries: true,
     gallery: false,
-    show_lib: "photo-lib"
+    show_lib: "photo-lib",
+    gallery: "gallery_001"
   },
 
   mutations: {
