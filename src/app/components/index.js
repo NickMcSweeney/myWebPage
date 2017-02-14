@@ -6,4 +6,6 @@ module.exports =  {
     'brewing': require("../windows/brewing/index.js"),
     'programing': require("../windows/code/index.js"),
     'credentials': require("../windows/credentials/index.js"),
+    'right-side-bar': require("./sideBar.js"),
+    'footer-bar': require("./footer.js"),
 }

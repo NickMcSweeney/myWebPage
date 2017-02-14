@@ -117,7 +117,7 @@ body .welcome_panel {
 }
 .fade-enter,
 .fade-leave-to {
-  transform: scaleY(x);
+  transform: scaleY(100%);
   opacity: 0;
 }
 .fade-delay-enter-active,
@@ -134,7 +134,7 @@ body .welcome_panel {
 }
 .slide-fade-enter,
 .slide-fade-leave-to {
-  transform: translateX(-84vw);
+  transform: translateX(-100%);
   opacity: 0;
 }
 .slide-enter-active,
@@ -143,6 +143,6 @@ body .welcome_panel {
 }
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(-84vw);
+  transform: translateX(-100%);
   opacity: 0;
 }

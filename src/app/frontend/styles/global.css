@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: #0f0e0f;
+  color: #fff;
 }
 body h1 {
   font: bold small-caps 4vh Oswald;
@@ -55,4 +56,21 @@ body .myPage {
 .component-fade-enter,
 .component-fade-leave-to {
   opacity: 0;
+}
+.links {
+  width: 100%;
+  height: 7hv;
+  font-size: 3vh;
+  padding-top: 2vh;
+  position: fixed;
+  margin: 0;
+  bottom: 0px;
+  background: #0f0e0f;
+  border-top: 3px solid #fff;
+}
+.links #insta {
+  vertical-align: middle;
+  margin-bottom: 1vh;
+  height: 3.6vh;
+  width: auto;
 }

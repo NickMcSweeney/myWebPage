@@ -7,7 +7,13 @@ module.exports = {
     galleries: true,
     gallery: false,
     show_lib: "photo-lib",
-    gallery: "gallery_001"
+    gallery: "gallery_001",
+
+    projects: {
+      projectList: [
+        {id: "", }
+      ]
+    }
   },
 
   mutations: {

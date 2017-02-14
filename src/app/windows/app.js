@@ -2,6 +2,7 @@ const Vue = require("vue/dist/vue.js");
 const Vuex = require("vuex");
 const VueRouter = require('vue-router');
 const startup = require("../frontend/scripts/vueStartup.js");
+window.constants = require("../frontend/scripts/constants");
 
 startup.registerComponents(require('../components'));
 startup.registerComponents(require("./photography/components"));

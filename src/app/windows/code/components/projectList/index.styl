@@ -1,0 +1,75 @@
+article.project-list-article
+  padding: 2rem
+
+  section:not(:last-of-type)
+    padding-bottom: 2rem
+
+  section.project-search
+    display: flex
+    justify-content: center
+    
+    > .search-container
+      flex: 2
+      padding-right: 2rem
+      border-right: var(--border)
+      display: flex
+      
+      > input
+        flex: 1
+        border-radius: 20px 0 0 20px
+        padding: 1rem
+        border: var(--border)
+        box-shadow: none
+        font-size: 1.4rem
+      
+      > i.icon-mag
+        border-radius: 0 20px 20px 0
+        border: var(--border)
+        border-left: none
+        line-height: 4.1rem
+        vertical-align: middle
+        transition: background-color .2s ease-in-out
+        cursor: pointer
+        width: 4rem
+        text-align: center
+        font-size: 1.8rem
+        font-weight: 600
+        color: $colors.grey-medium
+        
+        &:hover
+          background-color: $colors.grey-light
+    
+    > a.add-container
+      flex: 1
+      padding-left: 2rem
+      align-self: center
+      line-height: 4rem
+      vertical-align: middle
+      
+      &:hover
+        i.icon-close
+          background-color: $colors.grey-light
+      > span
+        line-height: 4.2rem
+        vertical-align: middle
+        color: $colors.blk
+        padding: 0 1rem
+      
+      > i.icon-close
+        border-radius: 50%
+        border: var(--border)
+        font-size: 1.8rem
+        font-weight: 600
+        height: 4rem
+        width: 4rem
+        line-height: 4rem
+        text-align: center
+        vertical-align: middle
+        padding: 0
+        transform: rotate(45deg)
+        cursor: pointer
+        transition: background-color .2s ease-in-out
+        color: $colors.grey-medium
+        
+        &:hover
+          background-color: $colors.grey-light

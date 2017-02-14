@@ -181,6 +181,19 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
+module.exports = {
+    template: `
+      <p class="links" align="center">
+        <router-link to="/credentials">
+          <a id="cred_link">Credentials</a>
+        </router-link>
+        &emsp;| &emsp;
+        <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
+      </p>
+    `
+}
+
+},{}],3:[function(require,module,exports){
 module.exports =  {
 
     'welcome': require("../windows/main/index.js"),
@@ -189,9 +202,159 @@ module.exports =  {
     'brewing': require("../windows/brewing/index.js"),
     'programing': require("../windows/code/index.js"),
     'credentials': require("../windows/credentials/index.js"),
+    'right-side-bar': require("./sideBar.js"),
+    'footer-bar': require("./footer.js"),
 }
 
-},{"../windows/brewing/index.js":8,"../windows/code/index.js":10,"../windows/credentials/index.js":12,"../windows/design/index.js":14,"../windows/main/index.js":22,"../windows/photography/index.js":29}],3:[function(require,module,exports){
+},{"../windows/brewing/index.js":11,"../windows/code/index.js":17,"../windows/credentials/index.js":19,"../windows/design/index.js":21,"../windows/main/index.js":29,"../windows/photography/index.js":35,"./footer.js":2,"./sideBar.js":4}],4:[function(require,module,exports){
+module.exports = {
+
+      components: {
+      },
+
+      props: [],
+
+      data: function () {
+        return {
+
+        }
+      },
+
+      methods: {
+
+      },
+
+      template: `
+      <div>
+        
+      </div>
+      `
+
+}
+
+},{}],5:[function(require,module,exports){
+// do not modify keys, if you do you gotta change the references throughout rest of files
+// values can be set to whatever the back end folks decide to use
+const CONSTANTS = {};
+
+CONSTANTS.PROJECT_STATUS = {
+  complete: "complete",
+  approval: "quote",
+  approved: "quote_approved",
+  matecat: "matecat_processing",
+  ready: "ready_for_work",
+  waiting: "waiting_for_jobs",
+  
+  needsAssignment: "needs_assignment",
+  inProgress: "in_progress",
+  
+  translationNeedsAssignment: "translation_needs_assignment",
+  translationInProgress: "translation_in_progress",
+  proofreadingNeedsAssignment: "proofreading_needs_assignment",
+  proofreadingInProgress: "proofreading_in_progress",
+  formattingNeedsAssignment: "formatting_needs_assignment",
+  formattingInProgress: "formatting_in_progress",
+  qualityNeedsAssignment: "quality_needs_assignment",
+  qualityInProgress: "quality_in_progress",
+};
+
+CONSTANTS.JOB_STATUS = {
+  assignment: "assignment",
+  offered: "offered",
+  accepted: "accepted",
+  inProgress: "in_progress",
+  incomplete: "incomplete",
+  needsAssignment: "needs_assignment",
+  fulfilled: "fulfilled",
+  abandoned: "abandoned",
+  failed: "failed",
+  repeating: "repeating",
+};
+
+CONSTANTS.JOB_TYPE = {
+  approval: "approval",
+  translation: "translation",
+  formatting: "dtp",
+  quality: "qc",
+  proofreading: "proofreading"
+};
+
+CONSTANTS.TARGET_STATUS = {
+  inProgress: "in-progress",
+  assignment: "needs-assignments",
+  awaitingOffers: "awaiting-offers",
+  approval: "quote",
+  approved: "quote_approved",
+  deadline: "deadline",
+  overdue: "overdue",
+  complete: "complete",
+  qualityFailed: "quality-failed",
+  
+  translationNeedsAssignment: "translation_needs_assignment",
+  translationInProgress: "translation_in_progress",
+  translationProcessing: "translation_processing",
+  proofreadingNeedsAssignment: "proofreading_needs_assignment",
+  proofreadingInProgress: "proofreading_in_progress",
+  proofreadingProcessing: "proofreading_processing",
+  formattingNeedsAssignment: "dtp_needs_assignment",
+  formattingInProgress: "dtp_in_progress",
+  formattingProcessing: "dtp_processing",
+  qualityNeedsAssignment: "qc_needs_assignment",
+  qualityInProgress: "qc_in_progress",
+  qualityProcessing: "qc_processing",
+};
+
+CONSTANTS.OFFER_STATUS = {
+  accepted: "accepted",
+  rejected: "rejected",
+  offered: "offered",
+};
+
+CONSTANTS.TASK_TYPES = {
+  question: "question",
+  quality: "quality",
+  deadlineApproaching: "deadline-approaching",
+  deadlineConflict: "deadline-conflict",
+  deadlinePastDue: "deadline-past-due",
+  offer: "offer",
+  review: "review",
+  new: "new",
+  finished: "finished",
+};
+
+CONSTANTS.TASK_ACTIONS = {
+  respond: "respond",
+  viewProject: "view-project",
+  forward: "forward",
+  done: "done",
+  requestExtension: "request-extension",
+  prefillMessage: "prefill-message",
+  reassignVendor: "reassign-vendor",
+  requestUpdate: "request-update",
+  newOffer: "new-offer",
+  certify: "certify",
+  noCertifyNeeded: "no-certify-needed",
+  createClientAccount: "create-client-account",
+  createProject: "create-project",
+}
+
+CONSTANTS.TASK_STATUS = {
+  urgent: "urgent",
+  lookout: "lookout",
+  healthy: "healthy",
+  complete: "complete",
+};
+
+CONSTANTS.CONTENT_TYPES = {
+  "application/pdf": "pdf",
+  "application/msword": "doc",
+  "text/rtf": "rtf",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
+};
+
+module.exports = CONSTANTS;
+
+},{}],6:[function(require,module,exports){
 "use strict";
 const Vue = require("vue/dist/vue.js");
 const VueRouter = require('vue-router');
@@ -227,7 +390,7 @@ module.exports = {
   buildRouter,
 };
 
-},{"vue-router":54,"vue/dist/vue.js":55}],4:[function(require,module,exports){
+},{"vue-router":73,"vue/dist/vue.js":74}],7:[function(require,module,exports){
 module.exports=[
   {
     "path": "/",
@@ -270,7 +433,7 @@ module.exports=[
   },
 ]
 
-},{}],5:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = {
 
   state: {
@@ -280,7 +443,13 @@ module.exports = {
     galleries: true,
     gallery: false,
     show_lib: "photo-lib",
-    gallery: "gallery_001"
+    gallery: "gallery_001",
+
+    projects: {
+      projectList: [
+        {id: "", }
+      ]
+    }
   },
 
   mutations: {
@@ -294,11 +463,12 @@ module.exports = {
 
 }
 
-},{}],6:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 const Vue = require("vue/dist/vue.js");
 const Vuex = require("vuex");
 const VueRouter = require('vue-router');
 const startup = require("../frontend/scripts/vueStartup.js");
+window.constants = require("../frontend/scripts/constants");
 
 startup.registerComponents(require('../components'));
 startup.registerComponents(require("./photography/components"));
@@ -332,12 +502,12 @@ return new Vue({
   // <router-view></router-view>
 // <component :is="$store.state.window"></component>
 
-},{"../components":2,"../frontend/scripts/vueStartup.js":3,"../routes.json":4,"../store":5,"./brewing/components":7,"./code/components":9,"./credentials/components":11,"./design/components":13,"./main/components":17,"./photography/components":25,"@welocalize/useful-shit":30,"vue-router":54,"vue/dist/vue.js":55,"vuex":57,"vuex-router-sync":56}],7:[function(require,module,exports){
+},{"../components":3,"../frontend/scripts/constants":5,"../frontend/scripts/vueStartup.js":6,"../routes.json":7,"../store":8,"./brewing/components":10,"./code/components":13,"./credentials/components":18,"./design/components":20,"./main/components":24,"./photography/components":31,"@welocalize/useful-shit":36,"vue-router":73,"vue/dist/vue.js":74,"vuex":76,"vuex-router-sync":75}],10:[function(require,module,exports){
 module.exports = {
   
 }
 
-},{}],8:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = {
 
       template: `
@@ -345,19 +515,394 @@ module.exports = {
       `
 }
 
-},{}],9:[function(require,module,exports){
-arguments[4][7][0].apply(exports,arguments)
-},{"dup":7}],10:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],11:[function(require,module,exports){
-arguments[4][7][0].apply(exports,arguments)
-},{"dup":7}],12:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],13:[function(require,module,exports){
-arguments[4][7][0].apply(exports,arguments)
-},{"dup":7}],14:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],15:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
+module.exports = {
+
+      components: {
+      },
+
+      props: [],
+
+      data: function () {
+        return {
+          projects: [
+            {header: 'My Web Page 1', content: 'myWebPage', url: 'https://api.github.com/repos/NickMcSweeney/myWebPage/contents'},
+            {header: 'My Web Page 2', content: 'src', url: 'https://api.github.com/repos/NickMcSweeney/myWebPage/contents/src'},
+            {header: 'My Web Page 3', content: 'dir', url: 'https://api.github.com/repos/NickMcSweeney/myWebPage/contents/src/app/index-dev.html'},
+          ],
+          name: "name",
+          content: "",
+          size: "",
+          link: "",
+          siblings: [
+          ]
+        }
+      },
+
+      methods: {
+        getGitPage: function (src) {
+          var xhr = new XMLHttpRequest();
+          const that = this;
+          xhr.onreadystatechange = function(){
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status < 400) {
+                try {
+                  var ret = JSON.parse(xhr.responseText);
+                  if (ret.content!=null) {
+                    // console.log("file", ret)
+                    that.content = atob(ret.content);
+                    that.name = ret.name;
+                    that.link = src+"/"+ret.name;
+                    that.siblings.push({name: that.name, link: that.link, content: that.content});
+                    console.log(that.content)
+                  }
+                  else {
+                    var i = 0;
+                    while (i<ret.length) {
+                      // console.log(that)
+                      that.name = ret[i].name;
+                      that.link = src+"/"+ret[i].name;
+                      // if(getGitPage(that.link)){
+                      //   that.siblings.push({name: that.name, link: that.link, content: that.content});
+                      // }
+                      that.siblings.push({name: that.name, link: that.link});
+                      console.log("folder")
+                      i++;
+                    }
+                    // console.log(this.name)
+                  }
+                } catch (err) {
+                  console.log("ERROR", err)
+                }
+              }
+            }
+          };
+          xhr.open("GET", src, true);
+          xhr.send(null);
+        },
+      },
+
+      template: `
+        <div>
+          <div>
+            <tab-list>
+              <tab v-for="project in projects" :header="project.header">
+                <a @click.prevents="getGitPage(project.url)">{{project.content}}</a>
+              </tab>
+            </tab-list>
+          </div>
+          <div v-for="sibling in siblings" >
+            <p>{{sibling.name}}</p>
+            <textarea>{{sibling.content}}</textarea>
+          </div>
+        </div>
+      `
+};
+
+},{}],13:[function(require,module,exports){
+module.exports = {
+  'code-display': require("./codeDisplay.js"),
+  'project-list': require("./projectList"),
+}
+
+},{"./codeDisplay.js":12,"./projectList":14}],14:[function(require,module,exports){
+
+"use strict";
+
+const { PROJECT_STATUS } = window.constants;
+
+module.exports = {
+  name: "project-list",
+  template:`
+    <article class="project-list-article">
+      <section class="project-search">
+        <div class="search-container">
+          <input type="text" @keydown.left.stop="" @keydown.right.stop="" placeholder="Search by keywords (program, rates, skills, etc)" v-model="searchString"/>
+          <i class="icon-mag" @click="search"></i>
+        </div>
+        <router-link to="project/new" class="add-container">
+          <i id="add-button" class="icon-close"></i>
+          <span>Add new project.</span>
+        </router-link>
+      </section>
+
+      <section>
+        <tab-list>
+          <!-- @change-tab="setProjectFilter" -->
+          <tab
+            v-for="filter in filters"
+            :header="filter.charAt(0).toUpperCase() + filter.slice(1)"
+          ></tab>
+        </tab-list>
+      </section>
+
+      <section>
+        <transition-group
+          tag="ul"
+          name="list-slide"
+          class="project-list"
+        >
+          <li
+            v-for="(project, index) in filteredProjects"
+            :key="project.id"
+            :project="project"
+            :index="index"
+            :focused="index === focused"
+            @set-focus="setFocus"
+            is="project-list-item"
+          ></li>
+        </transition-group>
+      </section>
+    </article>
+  `,
+  // mixins: [require("@welocalize/useful-shit").vue.mixins.routeData],
+  data() {
+    return {
+      show: true,
+      fetching: false,
+      filters: ["active", "pending", "completed"],
+      selectedFilter: 0,
+      searchString: "",
+      focused: -1,
+    };
+  },
+  computed: {
+    haveProjects() {
+      return this.$store.state.projects.projectList.length > 0;
+    },
+    emptyListString() {
+      return this.filter === "current" ? "No current" : "No past";
+    },
+    activeFilter() {
+      return this.filters[this.selectedFilter];
+    },
+    filteredProjects() {
+      const projects = this.$store.getters[`projects/${this.activeFilter}Projects`];
+      if (this.searchString) return projects.filter(proj => JSON.stringify(proj).toLowerCase().includes(this.searchString.toLowerCase()));
+      return projects;
+    },
+  },
+  methods: {
+    // fetchRouteData() {
+    //   this.$store.dispatch("projects/fetchProjects");
+    // },
+    // setProjectFilter(index) {
+    //   if (typeof index !== "number" || index < 0 || index >= this.filters.length) throw new Error("Tried to select an invalid filter.");
+    //   this.selectedFilter = index;
+    // },
+    search() {
+      console.log("search");
+    },
+    setFocus({ index }) {
+      this.focused = index;
+      const project = this.filteredProjects[this.focused];
+      this.$store.dispatch("normalizer/fetchProject", { request_id: project.id })
+        .then(() => {
+          this.$store.dispatch("contextTray/setFocusAndOpen", { focus: `project:${project.id}` });
+        });
+    },
+    // keydown(ev) {
+    //   if (ev.keyCode === 40 && this.focused + 1 < this.filteredProjects.length) {
+    //     this.setFocus({ index: this.focused + 1 });
+    //     ev.stopPropagation();
+    //   } else if (ev.keyCode === 38 && this.focused - 1 >= 0) {
+    //     this.setFocus({ index: this.focused - 1 });
+    //     ev.stopPropagation();
+    //   } else if (ev.keyCode === 13 && this.focused !== -1) {
+    //     const project = this.filteredProjects[this.focused];
+    //     if (project) {
+    //       this.$router.push(`/project/${project.id}`);
+    //       ev.preventDefault();
+    //       ev.stopPropagation();
+    //     }
+    //   }
+    // },
+  },
+  // mounted() {
+  //   document.body.addEventListener("keydown", this.keydown);
+  // },
+  // beforeDestroy() {
+  //   document.body.removeEventListener("keydown", this.keydown);
+  // },
+  locales: require("./lang"),
+  components: {
+    "project-list-item": require("./projectListItem"),
+  },
+};
+
+},{"./lang":15,"./projectListItem":16}],15:[function(require,module,exports){
+module.exports = {
+  "en-US": {
+    "PROJECT": "PROJECT",
+    "CLIENT": "CLIENT",
+    "PATENT": "PATENT",
+    "STATUS": "STATUS",
+    "No current": "You don't have any active projects right now.",
+    "No past": "You don't have any completed projects.",
+    "Current projects": "Current projects",
+    "Past projects": "Past projects",
+  },
+};
+
+},{}],16:[function(require,module,exports){
+const { PROJECT_STATUS } = window.constants;
+
+module.exports = {
+  template: `
+    <li
+      @click="setFocus(project.id)"
+      @dblclick="doubleClick"
+      class="list-slide-item project-list-item"
+      :class="selectedClass"
+    >
+      <div class="col-1">
+        <h5 :title="project.account.name">{{project.account.name}}</h5>
+        <h5 :title="project.title">{{project.patent.title}}</h5>
+        <h5>Due date</h5>
+      </div>
+      
+      <div class="col-2">
+        <h5>Adjusted word count: 10,214</h5>
+        <router-link
+          class="view-tasks-link"
+          :to="'/project/' + project.id"
+        >
+          View tasks
+        </router-link>
+      </div>
+    </li>
+  `,
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+    focused: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  computed: {
+    selectedClass() {
+      return {
+        selected: this.focused,
+      };
+    },
+    status() {
+      const PROJECT_VM = {
+        [PROJECT_STATUS.approval]: {
+          statusText: "Quote",
+          class: "status-urgent",
+        },
+        [PROJECT_STATUS.approved]: {
+          statusText: "Quote approved",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.needsAssignment]: {
+          statusText: "Needs assignment",
+          class: "status-lookout",
+        },
+        [PROJECT_STATUS.translationNeedsAssignment]: {
+          statusText: "Translation needs assignment",
+          class: "status-lookout",
+        },
+        [PROJECT_STATUS.translationInProgress]: {
+          statusText: "Translation in progress",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.proofreadingNeedsAssignment]: {
+          statusText: "Proofreading needs assignment",
+          class: "status-lookout",
+        },
+        [PROJECT_STATUS.proofreadingInProgress]: {
+          statusText: "Proofreading in progress",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.formattingNeedsAssignment]: {
+          statusText: "Formatting needs assignment",
+          class: "status-lookout",
+        },
+        [PROJECT_STATUS.formattingInProgress]: {
+          statusText: "Formatting in progress",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.qualityNeedsAssignment]: {
+          statusText: "QA needs assignment",
+          class: "status-lookout",
+        },
+        [PROJECT_STATUS.qualityInProgress]: {
+          statusText: "QA in progress",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.matecat]: {
+          statusText: "Processing files",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.ready]: {
+          statusText: "Ready for work",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.inProgress]: {
+          statusText: "In progress",
+          class: "status-healthy",
+        },
+        [PROJECT_STATUS.complete]: {
+          statusText: "Complete",
+          class: "status-done",
+        },
+        [PROJECT_STATUS.waiting]: {
+          statusText: "Processing files",
+          class: "status-healthy",
+        },
+      };
+      
+      return PROJECT_VM[this.project.status] || { statusText: this.project.status, class: "status-healthy" };
+    },
+  },
+  methods: {
+    setFocus() {
+      this.$emit("set-focus", { index: this.index });
+    },
+    doubleClick() {
+      console.log("double click");
+      this.$router.push(`/project/${this.project.id}`);
+    },
+  },
+};
+
+},{}],17:[function(require,module,exports){
+module.exports = {
+
+  template: `
+    <div id="page_view">
+      <h1>{Hello World}</h1>
+
+      <project-list></project-list>
+
+      <footer-bar></footer-bar>
+    </div>
+  `
+}
+
+
+
+
+// <iframe src="https://gist.github.com/NickMcSweeney/7b4bc1da7efb567f4c75b4a7ff23cfbe.js"></iframe>
+// <embed src="https://gist.github.com/NickMcSweeney/7b4bc1da7efb567f4c75b4a7ff23cfbe.js"></embed>
+
+},{}],18:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],19:[function(require,module,exports){
+arguments[4][11][0].apply(exports,arguments)
+},{"dup":11}],20:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],21:[function(require,module,exports){
+arguments[4][11][0].apply(exports,arguments)
+},{"dup":11}],22:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -381,9 +926,9 @@ module.exports = {
 
 };
 
-},{}],16:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = {
-  
+
       components: {
       },
 
@@ -423,7 +968,7 @@ module.exports = {
 
 };
 
-},{}],17:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = {
     'main-menu': require("./menu.js"),
     'side-bar': require("./sideBar.js"),
@@ -433,7 +978,7 @@ module.exports = {
     'menu-btn': require("./menuBtn.js")
 }
 
-},{"./coverFrame.js":15,"./coverPanel.js":16,"./linkBar.js":18,"./menu.js":19,"./menuBtn.js":20,"./sideBar.js":21}],18:[function(require,module,exports){
+},{"./coverFrame.js":22,"./coverPanel.js":23,"./linkBar.js":25,"./menu.js":26,"./menuBtn.js":27,"./sideBar.js":28}],25:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -451,7 +996,7 @@ module.exports = {
 
 };
 
-},{}],19:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -483,7 +1028,7 @@ module.exports = {
       `
 };
 
-},{"./menuBtn.js":20}],20:[function(require,module,exports){
+},{"./menuBtn.js":27}],27:[function(require,module,exports){
 module.exports = {
 
   props: ['btn_img','name','btn_float','navTo'],
@@ -503,7 +1048,7 @@ module.exports = {
   `
 }
 
-},{}],21:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = {
 
       components: {
@@ -538,7 +1083,7 @@ module.exports = {
 // <li><a>Programing</a></li>
 // <li><a>Credentials</a></li>
 
-},{}],22:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = {
 
       template: `
@@ -560,20 +1105,7 @@ module.exports = {
       `
 };
 
-},{}],23:[function(require,module,exports){
-module.exports = {
-    template: `
-      <p class="links" align="center">
-        <router-link to="/credentials">
-          <a id="cred_link">Credentials</a>
-        </router-link>
-        &emsp;| &emsp;
-        <a target="_blank" title="follow me on instagram" href="http://www.instagram.com/nicholasjamesshindler"><img id="insta" alt="follow me on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>
-      </p>
-    `
-}
-
-},{}],24:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = {
 
   data: function () {
@@ -590,18 +1122,17 @@ module.exports = {
   `
 }
 
-},{}],25:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = {
 
   'photo-link': require("./links.js"),
   'page-title': require("./title.js"),
   'photo-lib': require("./lib.js"),
   'photo-gallery': require("./gallery.js"),
-  'footer-bar': require("./footer.js")
-  
+
 }
 
-},{"./footer.js":23,"./gallery.js":24,"./lib.js":26,"./links.js":27,"./title.js":28}],26:[function(require,module,exports){
+},{"./gallery.js":30,"./lib.js":32,"./links.js":33,"./title.js":34}],32:[function(require,module,exports){
 module.exports = {
 
     components: {
@@ -640,7 +1171,7 @@ module.exports = {
     `
 }
 
-},{}],27:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports = {
 
     props: ['name', 'source', 'imgStyle'],
@@ -664,7 +1195,7 @@ module.exports = {
     `
 }
 
-},{}],28:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports = {
     template: `
       <div class="title-bar" align="center">
@@ -673,7 +1204,7 @@ module.exports = {
     `
 }
 
-},{}],29:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = {
 
       template: `
@@ -687,18 +1218,313 @@ module.exports = {
       `
 };
 
-},{}],30:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 "use strict";
 module.exports = require("./src");
 
-},{"./src":31}],31:[function(require,module,exports){
+},{"./src":37}],37:[function(require,module,exports){
 "use strict";
 module.exports = {
   vue: require("./vue"),
   // electron: require("./electron"),
 };
 
-},{"./vue":50}],32:[function(require,module,exports){
+},{"./vue":67}],38:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+
+  name: 'component-tree',
+  template: `
+    <li :class="{ active: isActive, opened: open, children: hasChildren }">
+      <a class="component-link" @click.prevent="select">
+        <{{ component.$options.name || component.$options._componentTag}}>
+        <span class="count" v-if="hasChildren">
+          {{ children.length }} {{ pluralChildren()}}
+        </span>
+      </a>
+      <ul v-if="hasChildren && open">
+        <component-tree
+           v-for="comp in children" v-on:dataChange="dataChange" :activeKey="activeKey" :component="comp">
+        </component-tree>
+      </ul>
+    </li>
+  `,
+
+  data() {
+    return {
+      int: 0,
+      open: false,
+    };
+  },
+
+  mounted() {
+    this.int = setInterval(() => {
+      this.$forceUpdate();
+    }, 1000);
+  },
+
+  beforeDetroy() {
+    clearInterval(this.int);
+  },
+
+  props: ['component', 'activeKey'],
+
+  computed: {
+    children() {
+      return this.component.$children;
+    },
+    hasChildren() {
+      return this.children.length > 0;
+    },
+    isActive() {
+      return this.component._uid == this.activeKey;
+    }
+  },
+
+  methods: {
+
+    dataChange(args) {
+      this.$emit('dataChange', args);
+    },
+    pluralChildren() {
+      return this.children.length == 1 ? 'Child' : 'Children';
+    },
+    select() {
+      this.dataChange({
+        name: this.component.$options.name,
+        id: this.component._uid,
+        data: {
+          data: this.component.$data,
+          props: this.component.$options.propsData
+        }
+      });
+      this.toggle();
+    },
+    toggle() {
+      this.open = !this.open;
+    }
+  }
+
+
+};
+
+},{}],39:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+
+
+  name: 'debugger',
+
+  template: `
+    <div class="vue-debugger container">
+      <div class="vue-debugger pane" :class="{ opened: open }">
+        <div class="vue-debugger toggle" @click.prevent="toggle">🔮</div>
+
+        <nav-tree
+          :components="components"
+          v-on:dataChange="dataChange"
+          :activeKey="activeKey"
+          v-if="keepAlive || open">
+        </nav-tree>
+
+        <div class="vue-debugger main-pane" v-if="keepAlive || open">
+          <obj-tree
+            v-for="value, key in dataSource" :name="key" :value="value">
+          </obj-tree>
+        </div>
+      </div>
+
+    </div>
+  `,
+
+  mounted() {
+
+    window.addEventListener('keydown', (ev) => {
+      if (ev.ctrlKey && ev.code == 'KeyD') this.toggle();
+    });
+  },
+
+  methods: {
+    shortcuts(ev) {
+
+    },
+    showKey(key) {
+      this.activeKey = key;
+    },
+    toggle() {
+      this.open = !this.open;
+    },
+    dataChange(args) {
+      this.activeKey = args.id;
+      this.dataSource = args.data;
+    }
+  },
+
+  props: ['components', 'keepAlive'],
+
+  components: {
+    'obj-tree': require('./obj-tree'),
+    'nav-tree': require('./nav-tree'),
+  },
+
+  data() {
+    return {
+      activeKey: 'vuex',
+      open: false,
+      dataSource: this.$store.state
+    };
+  }
+
+
+};
+
+},{"./nav-tree":40,"./obj-tree":41}],40:[function(require,module,exports){
+'use strict';
+
+let int = 0;
+
+module.exports = {
+  name: 'nav-tree',
+
+  props: ['components', 'activeKey'],
+
+  template: `
+
+    <div class="vue-debugger nav-pane">
+      <ul>
+        <li :class="{ active: activeKey == 'vuex' }">
+          <a
+            @click.prevent="dataChange({ name: 'vuex', id: 'vuex', data: $store.state })">
+            Vuex</a>
+        </li>
+        <component-tree
+          v-for="comp in components"
+          v-on:dataChange="dataChange"
+          v-if="comp.$options.name != 'debugger'"
+          :component="comp"
+          :activeKey="activeKey">
+        </component-tree>
+      </ul>
+    </div>
+  `,
+
+  mounted() {
+    this.int = setInterval(() => {
+      this.$forceUpdate();
+    }, 1000);
+  },
+
+  beforeDetroy() {
+    clearInterval(this.int);
+  },
+
+  methods: {
+    dataChange(args) {
+      this.$emit('dataChange', args);
+    }
+  },
+
+  data() {
+    return {
+      int: 0
+    };
+  },
+
+  components: {
+    'component-tree': require('./component-tree'),
+  },
+
+};
+
+},{"./component-tree":38}],41:[function(require,module,exports){
+'use strict';
+
+const Type = require('type-of-is');
+
+module.exports = {
+
+  name: 'obj-tree',
+
+  template: `
+
+    <div class="vue-debugger obj-tree" :class="{ open: isOpen, empty: length == 0 }" >
+
+      <span class="key"
+        v-if="name" :class="type" @click.prevent="toggle">
+        {{ name }}<span class="divider">: </span>
+      </span>
+
+      <span class="type"
+        v-if="hasChildren" @click.prevent="toggle" :class="type">
+        {{ type }} {{ length }}
+      </span>
+
+      <span class="container" v-if="hasChildren && isOpen">
+        <obj-tree
+          v-for="val, key in value"
+          :name="key.toString()" :parentOpen="type =='Array'" :value="val">
+        </obj-tree>
+      </span>
+
+      <span class="value" :class="type" v-else-if="!hasChildren">
+        {{ printValue() }}
+      </span>
+    </div>
+  `,
+
+  props: ['name', 'value', 'parentOpen'],
+
+  data() {
+    return {
+      beenClicked: false,
+      open: this.name ? false : true
+    };
+  },
+
+  computed: {
+    isOpen() {
+      if (!this.beenClicked && this.parentOpen) this.open = true;
+      return this.open;
+    },
+
+    length() {
+      if (this.type == 'Object') return Object.keys(this.value).length;
+      if (this.type == 'Array') return this.value.length;
+      return 0;
+    },
+    type() {
+      return Type.string(this.value);
+    },
+    hasChildren() {
+      return this.length > 0;
+    },
+  },
+
+  methods: {
+
+    printValue() {
+      if (this.type == 'null') return 'null';
+      if (this.value == undefined) return 'undefined';
+      if (this.value == '' && this.type == 'String') return '""';
+      if (this.type == 'Array' && this.value.length == 0) return '[]';
+      if (this.type == 'Object' && Object.keys(this.value).length == 0) return '{}';
+
+      return this.value.toString();
+    },
+
+    toggle() {
+      this.beenClicked = true;
+      this.open = !this.open;
+    },
+
+
+  }
+
+};
+
+},{"type-of-is":72}],42:[function(require,module,exports){
 
 "use strict";
 
@@ -771,7 +1597,7 @@ module.exports = {
   },
 };
 
-},{}],33:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 
 "use strict";
 
@@ -855,14 +1681,394 @@ module.exports = {
   },
 };
 
-},{}],34:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
+"use strict";
+
+let focusedInt;
+
+module.exports = {
+
+  computed: {
+    inputSize() {
+      return this.search.length > 0 ? Math.ceil(this.search.length*1.5) : 1;
+    },
+
+  },
+
+  methods: {
+
+    onEnterKey(ev) {
+      if (this.matches.length > 0) {
+        if (this.editing) {
+          this.updateFilter(this.selected);
+        } else {
+          this.addFilter(this.selected);
+        }
+      }
+    },
+
+    isMatch(key, str) {
+      return str.trim() == "" || key.toLowerCase().indexOf(str.toLowerCase()) === 0;
+    },
+
+    arrowDown(ev) {
+      ev.stopPropagation();
+      ev.preventDefault();
+      this.arrow('down');
+      return false;
+    },
+
+    arrowUp(ev) {
+      ev.stopPropagation();
+      ev.preventDefault();
+      this.arrow('up');
+      return false;
+    },
+
+    arrow(dir) {
+      let index = this.matches.findIndex(match => match == this.selected);
+      index = dir == "down" ? index + 1 : index - 1;
+      if (this.matches[index]) {
+        this.selected = this.matches[index];
+        this.scrollIntoView();
+      }
+    },
+
+    onBlur() {
+      focusedInt = setTimeout(() => {
+        this.focused = false;
+        this.$emit('edit', null);
+      }, 300);
+    },
+
+    onFocus() {
+      if (focusedInt) clearInterval(focusedInt);
+      this.focused = true;
+    },
+
+    focus() {
+      this.$el.querySelector('input').focus();
+    },
+
+    cancel() {
+      this.$el.querySelector('input').blur();
+    },
+
+    scrollIntoView() {
+      let el = this.$el.querySelector(`*[data-key="${this.selected}"]`);
+      if (el) el.scrollIntoView();
+    },
+
+    mark(match) {
+      let len = this.search.length;
+      return len == 0 ? match : `<mark>${match.substring(0, len)}</mark>${match.substring(len, match.length)}`;
+    },
+
+  },
+
+
+};
+
+},{}],45:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+
+  template: `
+    <div class="add-filter">
+      <input id="input"
+        @keyup.enter.prevent="addFilter(selected)"
+        @keyup.down.prevent="arrowDown"
+        @keyup.up.prevent="arrowUp"
+
+        @keydown.delete="onDelete"
+        @keyup.esc="cancel"
+        @blur="onBlur"
+        @focus="onFocus"
+        :size="inputSize"
+        v-model="search"
+        placeholder="Add Filter:" class="filter-input" type="text" />
+
+      <ul class="menu" v-if="focused">
+        <li v-for="match in matches" :data-key="match" :class="{ active: selected == match }">
+          <a @click.prevent="addFilter(match)" v-html="mark(match)"></a>
+        </li>
+      </ul>
+
+    </div>
+  `,
+
+  name: 'filter-add',
+  mixins: [require('./filter-mixin')],
+  props: ['engaged', 'options'],
+
+  mounted() {
+    if (this.engaged) this.focus();
+  },
+
+  methods: {
+
+    onDelete() {
+      this.$emit('deleteLast');
+    },
+
+    addFilter(chosen) {
+      if (this.matches.length == 0) return;
+      this.$emit('add', {key: chosen});
+    },
+
+  },
+
+  data() {
+    return {
+      search: '',
+      focused: false,
+      selected: ''
+    };
+  },
+
+  computed: {
+
+    matches() {
+      const matches = Object.keys(this.options).filter(key => this.isMatch(key, this.search) );
+      this.selected = matches[0];
+      return matches;
+    },
+
+  },
+
+
+};
+
+},{"./filter-mixin":44}],46:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+
+  template: `
+    <div class="filter" :class="{error: !editing && filter.value == null }">
+
+      <span @click.prevent="editFilter">
+        <span>{{filter.key}}:</span>
+        <span v-if="!editing">{{filter.value}}</span>
+      </span>
+
+      <div v-if="editing" class="input-wrapper">
+        <input id="input"
+          @keyup.enter.prevent="updateFilter(selected)"
+          @keyup.down.prevent="arrowDown"
+          @keyup.up.prevent="arrowUp"
+          @keydown.esc="cancel"
+          @blur="onBlur"
+          @focus="onFocus"
+
+          :value="search"
+          :size="inputSize"
+
+          v-focus
+          v-model="search"
+          class="filter-input" type="text" />
+      </div>
+
+      <i class="icon-cancel" @click.prevent="removeFilter"></i>
+
+      <ul v-if="editing && focused" class="menu">
+        <li v-for="match in matches" :data-key="match" :class="{ active: selected == match }">
+          <a @click.prevent="updateFilter(match)" v-html="mark(match)"></a>
+        </li>
+      </ul>
+
+    </div>
+  `,
+
+  name: 'filter-edit',
+  mixins: [require('./filter-mixin')],
+  props: ['filter', 'editing', 'options', 'filters'],
+
+  data() {
+    return {
+      search: '',
+      selected: null,
+      focused: false
+    };
+  },
+
+  methods: {
+
+    updateFilter(chosen) {
+      if (this.matches.length == 0) return;
+      this.filter.value = this.search = chosen;
+      this.$emit('update', this.filter);
+    },
+
+    removeFilter() {
+      this.$emit('remove', this.filter);
+    },
+
+    editFilter() {
+      this.$emit('edit', this.filter);
+    },
+
+  },
+
+  computed: {
+
+    matches() {
+      const used = this.filters
+        .filter(filter => filter.key == this.filter.key && filter.value)
+        .map(filter => filter.value);
+
+      const matches = this.options[this.filter.key]
+        .filter(option => {
+          return this.isMatch(option, this.search) && !used.includes(option);
+        });
+
+      this.selected = matches[0];
+      return matches;
+    },
+
+  }
+
+};
+
+},{"./filter-mixin":44}],47:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+  template: `
+    <div @click="clicked" class="filter-container">
+      <div class="filter-wrapper">
+
+        <filter-edit
+          v-for="filter in filters"
+          :options="options"
+          :filter="filter"
+          :filters="filters"
+          :editing="isEditing(filter)"
+          v-on:update="updateFilter"
+          v-on:remove="removeFilter"
+          v-on:edit="editFilter">
+        </filter-edit>
+
+        <filter-add
+          v-if="!filterEditing"
+          :engaged="receivedFocus"
+          :options="options"
+          v-on:add="addFilter"
+          v-on:deleteLast="deleteLastFilter">
+
+        </filter-add>
+
+      </div>
+    </div>
+  `,
+
+  name: 'filter-bar',
+  props: ['options', 'active'],
+
+  components: {
+    'filter-add': require('./filterAdd'),
+    'filter-edit': require('./filterEdit'),
+  },
+
+  computed: {
+    filters() {
+      return this.active.map(filter => Object.assign({}, filter));
+    }
+  },
+
+  methods: {
+    clicked() {
+      this.receivedFocus = true;
+    },
+
+    isEditing(filter) {
+      return this.filterEditing
+        && this.filterEditing.key == filter.key
+        && this.filterEditing.value == filter.value;
+    },
+
+    findIndex(searchFor) {
+      return this.filters.findIndex(filter => {
+        return filter.key == searchFor.key && filter.value == searchFor.value;
+      });
+    },
+
+    // listeners
+
+    deleteLastFilter() {
+      this.filters.pop();
+      this.dispatchChange();
+    },
+
+    addFilter(filter) {
+      filter.index = this.filters.length;
+      this.filters.push(filter);
+      this.editFilter(filter);
+    },
+
+    removeFilter(filter) {
+      const index = this.findIndex(filter);
+      this.filters.splice(index, 1);
+      this.editFilter(null);
+      this.dispatchChange();
+    },
+
+    editFilter(filter) {
+      this.filterEditing = filter;
+
+      if (filter == null) {
+        this.editingIndex = null;
+        this.findNeedsEditing();
+        return;
+      }
+
+      this.editingIndex = this.findIndex(filter);
+    },
+
+    updateFilter(filter) {
+      this.filters[this.editingIndex] = filter;
+      this.filterEditing = this.edtingIndex = null;
+      this.dispatchChange();
+    },
+
+    findNeedsEditing() {
+      this.filters.forEach((filter, index) => {
+        if (!filter.value) {
+          this.editingFilter = filter;
+          this.editingIndex = index;
+        }
+      });
+    },
+
+    dispatchChange() {
+      this.$emit('filters', this.filters);
+    }
+  },
+
+  data() {
+    return {
+      receivedFocus: false,
+      editingIndex: null,
+      filterEditing: null
+    };
+  },
+
+};
+
+},{"./filterAdd":45,"./filterEdit":46}],48:[function(require,module,exports){
 const components = {
   tab: require("./tab"),
   "tab-list": require("./tabList"),
   "tag-list": require("./tagList"),
   "dropdown-menu": require("./dropdownMenu"),
+  "debugger": require("./debugger"),
   "file-input": require("./fileInput"),
+  "filter-bar": require("./filterBar"),
   modal: require("./modal"),
+  "type-ahead": require("./typeAhead"),
+  spinner: require("./spinner"),
+  "multiple-choice": require("./multipleChoice"),
 };
 
 function install(Vue, options) {
@@ -873,7 +2079,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, components);
 
-},{"./dropdownMenu":32,"./fileInput":33,"./modal":35,"./tab":36,"./tabList":37,"./tagList":38}],35:[function(require,module,exports){
+},{"./debugger":39,"./dropdownMenu":42,"./fileInput":43,"./filterBar":47,"./modal":49,"./multipleChoice":50,"./spinner":51,"./tab":52,"./tabList":53,"./tagList":54,"./typeAhead":55}],49:[function(require,module,exports){
 
 "use strict";
 
@@ -920,11 +2126,12 @@ module.exports = {
   },
   methods: {
     clickAway(ev) {
-      if (!this.$refs.modal.contains(ev.target)) {
+      if (!this.$refs.modal || !this.$refs.modal.contains(ev.target)) {
         this.$emit("close", { ev });
       }
     },
     escKey(ev) {
+      if (ev.target.tagName.toLowerCase() === "input") return;
       if (ev.keyCode === 27) {
         ev.preventDefault();
         ev.stopPropagation();
@@ -932,9 +2139,120 @@ module.exports = {
       }
     },
   },
+  beforeDestroy() {
+    document.body.removeEventListener("click", this.clickAway);
+    document.body.removeEventListener("keydown", this.escKey);
+  },
+};
+
+},{}],50:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+  name: "multiple-choice",
+  template: `
+    <span
+      class="multiple-choice-container"
+      tabindex="0"
+      @keydown="keydown"
+    >
+      <label v-for="(option, index) in options">
+        <span class="shortcut-key">{{String.fromCharCode(shortcuts[index])}}</span>
+        {{option[displayKey]}}
+        <input
+          ref="input"
+          type="radio"
+          :name="name"
+          :value="option[valueKey]"
+          :checked="option[valueKey] === value"
+          @change="updateValue(index)"
+        />
+        <i class="icon-check"></i>
+      </label>
+    </span>
+  `,
+  props: {
+    value: {},
+    options: {
+      type: Array,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    displayKey: {
+      type: String,
+      required: true,
+    },
+    valueKey: {
+      type: String,
+      required: true,
+    },
+    keyCodes: {
+      type: Array,
+    },
+    keyCodeStart: {
+      type: Number,
+      default: () => 49,
+    },
+  },
+  data() {
+    return {
+      shortcuts: this.options.map((option, index) => {
+        if (this.keyCodes && this.keyCodes[index]) return this.keyCodes[index];
+        return this.keyCodeStart + index;
+      }),
+    };
+  },
+  methods: {
+    updateValue(index) {
+      // pass up original rather than casted to String version
+      const value = this.options[index][this.valueKey];
+      this.$emit("input", value);
+    },
+    keydown(ev) {
+      this.shortcuts.forEach((keyCode, index) => {
+        if (ev.keyCode === keyCode) {
+          this.$refs.input[index].checked = true;
+          this.updateValue(index);
+        }
+      });
+    },
+  },
+  created() {
+    for (let i = 0; i < this.options.length; i++) {
+      const option = this.options[i];
+      if (option[this.valueKey] === undefined) {
+        console.warn(`All options should contain the key "${this.valueKey}". Option at index ${i} does not contain this key.`);
+        break;
+      }
+      if (option[this.displayKey] === undefined) {
+        console.warn(`All options should contain the key "${this.displayKey}". Option at index ${i} does not contain this key.`);
+        break;
+      }
+    }
+  },
+};
+
+},{}],51:[function(require,module,exports){
+module.exports = {
+  name: "spinner",
+  template: `
+    <span class="spinner">
+      <i
+        v-if="spinning"
+        class="icon-spinner"
+      ></i>
+    </span>
+  `,
+  props: {
+    spinning: Boolean,
+    required: true,
+  },
 }
 
-},{}],36:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 // tab component must be globally defined for now rather than as a local component inside tabList
 // because transcluded components render in the outer scope rather than in tabList's scope,
 // so locally defined components in tabList will not be available to the outer component.
@@ -962,7 +2280,7 @@ module.exports = {
   },
 }
 
-},{}],37:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 
 "use strict";
 
@@ -1085,7 +2403,7 @@ module.exports = {
   },
 };
 
-},{}],38:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -1140,7 +2458,9 @@ module.exports = {
 
   computed: {
     matches() {
-      const matches = this.source.filter(item => item[this.display].includes(this.input));
+      const matches = this.source.filter(item => {
+        return item[this.display].includes(this.input) && !this.ids.includes(item.id);
+      });
       this.selectedId = matches.length == 0 ? null : matches[0].id;
       return matches;
     },
@@ -1170,6 +2490,7 @@ module.exports = {
 
     escape() {
       this.isEditing = false;
+      this.input = "";
       this.$el.querySelector('.type-ahead').blur();
     },
 
@@ -1211,7 +2532,179 @@ module.exports = {
   }
 };
 
-},{}],39:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
+
+"use strict";
+
+module.exports = {
+  name: "type-ahead",
+  template: `
+    <label
+      class="type-ahead-label"
+      :class="className"
+    >
+      <input
+        type="text"
+        :placeholder="placeholder"
+        :tabindex="tabindex"
+        :name="name"
+        :value="inputText"
+        @input="updateText($event.target.value)"
+        :disabled="disabled"
+        @keydown.38.stop.prevent="selectPrevious"
+        @keydown.40.stop.prevent="selectNext"
+      />
+      
+      <ul
+        v-if="showMatches"
+        class="matches"
+        ref="matches"
+      >
+        <li v-if="matches.length === 0">
+          <slot name="noMatchesMessage">No matches...</slot>
+        </li>
+        <li
+          v-else
+          class="option"
+          v-for="(match, index) in matches"
+          :class="{ selected: index === selectedIndex }"
+          @click.stop.prevent="selectIndex(index)"
+        >
+          {{match[display]}}
+          <cite v-if="cite">{{match[cite]}}</cite>
+        </li>
+      </ul>
+      
+      <span class="arrows" @click.stop.prevent="clickDropdown"></span>
+    </label>
+  `,
+  props: {
+    placeholder: {
+      type: String,
+    },
+    tabindex: {
+      type: Number,
+      default: () => 0,
+    },
+    className: {
+      type: String,
+    },
+    options: {
+      type: Array,
+      required: true,
+    },
+    display: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+    },
+    cite: {
+      type: String,
+    },
+    minimum: {
+      type: Number,
+      default: () => 3,
+    },
+    disabled: {
+      type: Boolean,
+    },
+  },
+  data() {
+    return {
+      inputText: "",
+      selectedIndex: -1,
+      showMatches: false,
+    };
+  },
+  computed: {
+    matches() {
+      const cleanInput = this.inputText.trim().toLowerCase();
+      return this.options.filter(option => option[this.display].trim().toLowerCase().includes(cleanInput));
+    },
+  },
+  methods: {
+    updateText(value) {
+      this.clearSelection();
+      this.inputText = value;
+      if (value.length === 0) {
+        this.closeMatches();
+      } else if (value.length >= this.minimum) {
+        this.openMatches();
+      }
+    },
+    keydown(ev) {
+      if (ev.keyCode === 27) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        this.showMatches = false;
+      }
+    },
+    clickAway(ev) {
+      if (!this.$el.contains(ev.target)) {
+        this.closeMatches();
+      }
+    },
+    clickDropdown() {
+      if (this.showMatches) return this.closeMatches();
+      this.openMatches();
+    },
+    openMatches() {
+      this.showMatches = true;
+      if (this.matches.length && this.selectedIndex === -1) this.selectedIndex = 0;
+      document.body.addEventListener("click", this.clickAway);
+      document.body.addEventListener("keydown", this.menuKey);
+    },
+    closeMatches() {
+      this.showMatches = false;
+      document.body.removeEventListener("click", this.clickAway);
+      document.body.removeEventListener("keydown", this.menuKey);
+    },
+    selectNext() {
+      if (!this.showMatches) return this.openMatches();
+      if (this.selectedIndex < this.matches.length - 1) {
+        this.selectedIndex += 1;
+      }
+    },
+    selectPrevious() {
+      if (!this.showMatches) return this.openMatches();
+      if (this.selectedIndex > 0) {
+        this.selectedIndex -= 1;
+      }
+    },
+    clearSelection() {
+      this.$emit("input", undefined);
+    },
+    selectIndex(index) {
+      this.selectedIndex = -1;
+      this.$emit("input", this.matches[index]);
+      this.inputText = this.matches[index][this.display];
+      this.$nextTick(() => {
+        this.closeMatches();
+      });
+    },
+    menuKey(ev) {
+      if (ev.keyCode === 13) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (this.matches.length && this.selectedIndex >= 0 && this.selectedIndex < this.matches.length) {
+          this.selectIndex(this.selectedIndex);
+        }
+      }
+    },
+  },
+  mounted() {
+    document.body.addEventListener("keydown", this.keydown);
+  },
+  beforeDestroy() {
+    document.body.removeEventListener("keydown", this.keydown);
+    document.body.removeEventListener("click", this.clickAway);
+    document.body.removeEventListener("keydown", this.menuKey);
+  },
+};
+
+},{}],56:[function(require,module,exports){
 module.exports = {
   name: "click-away",
   
@@ -1239,15 +2732,23 @@ module.exports = {
   },
 };
 
-},{}],40:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports = {
   name: 'focus',
-  inserted(el) {
-    el.focus()
+  inserted(el, binding) {
+    if (binding.value) el.focus();
+    else el.blur();
+  },
+  
+  componentUpdated(el, binding) {
+    if (binding.modifiers.lazy && Boolean(binding.value) === Boolean(binding.oldValue)) return;
+    
+    if (binding.value) el.focus();
+    else el.blur();
   },
 };
 
-},{}],41:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 const directives = {
   "click-away": require("./clickAway"),
   "prevent-paste": require("./preventPaste"),
@@ -1262,7 +2763,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, directives);
 
-},{"./clickAway":39,"./focus":40,"./preventPaste":42}],42:[function(require,module,exports){
+},{"./clickAway":56,"./focus":57,"./preventPaste":59}],59:[function(require,module,exports){
 module.exports = {
   name: 'prevent-paste',
   inserted(el) {
@@ -1274,7 +2775,7 @@ module.exports = {
   },
 };
 
-},{}],43:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = function currencyFilter(value) {
   if (typeof value === "string") {
     return value.toLocaleString("en-US", { style: 'currency', currency: "USD" });
@@ -1285,7 +2786,7 @@ module.exports = function currencyFilter(value) {
   }
 };
 
-},{}],44:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 module.exports = function(value) {
   const date = new Date(value);
   const format = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -1293,7 +2794,7 @@ module.exports = function(value) {
   return formatter.format(date);
 };
 
-},{}],45:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = function humanize(value) {
   if (!_.isString(value)) {
     console.warn("you must pass a string to the humanize filter");
@@ -1302,7 +2803,7 @@ module.exports = function humanize(value) {
   return value.split('_').map(seg => seg.charAt(0).toUpperCase() + seg.slice(1)).join(' ');
 };
 
-},{}],46:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 const filters = {
   humanize: require("./humanize"),
   capitalize: (str) => str.charAt(0).toUpperCase() + str.substr(1),
@@ -1322,7 +2823,7 @@ function install(Vue, options) {
 
 module.exports = Object.assign({ install }, filters);
 
-},{"./currency":43,"./date":44,"./humanize":45,"./secsToTimecode":47,"./time":48,"./timeOfDay":49}],47:[function(require,module,exports){
+},{"./currency":60,"./date":61,"./humanize":62,"./secsToTimecode":64,"./time":65,"./timeOfDay":66}],64:[function(require,module,exports){
 module.exports = function secsToTimecode(secs) {
   try {
     return `${Math.floor(secs / 60 | 0)}:${padZero(Math.floor(secs % 60))}`;
@@ -1331,7 +2832,7 @@ module.exports = function secsToTimecode(secs) {
   }
 };
 
-},{}],48:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports = function timeFilter(value) {
   const date = new Date(value);
   const format = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
@@ -1339,7 +2840,7 @@ module.exports = function timeFilter(value) {
   return formatter.format(date);
 };
 
-},{}],49:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports = function timeOfDay(time) {
   time = time instanceof Date ? time : new Date(time);
   let hours = time.getHours();
@@ -1352,7 +2853,7 @@ module.exports = function timeOfDay(time) {
   }
 };
 
-},{}],50:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 const tools = {
   components: require("./components"),
   directives: require("./directives"),
@@ -1364,18 +2865,59 @@ function install(Vue, options) {
   Vue.use(tools.components);
   Vue.use(tools.directives);
   Vue.use(tools.filters);
+  Vue.use(tools.mixins);
 }
 
 tools.install = install;
 
 module.exports = tools;
 
-},{"./components":34,"./directives":41,"./filters":46,"./mixins":51}],51:[function(require,module,exports){
-module.exports = {
-  validator: require('./validator/index.js')
+},{"./components":48,"./directives":58,"./filters":63,"./mixins":68}],68:[function(require,module,exports){
+const mixins = {
+  validator: require("./validator"),
+  routeData: require("./routeData"),
 };
 
-},{"./validator/index.js":52}],52:[function(require,module,exports){
+function install(Vue, options) {
+  Vue.mixins = mixins;
+}
+
+module.exports = Object.assign({ install }, mixins);
+
+},{"./routeData":69,"./validator":70}],69:[function(require,module,exports){
+
+"use strict";
+
+module.exports = {
+  methods: {
+    $refreshKeyDown(ev) {
+      if (ev.keyCode === 82 && ev.metaKey) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.fetchRouteData();
+      }
+    },
+  },
+  beforeCreate() {
+    if (!this.$options.methods || !this.$options.methods.fetchRouteData) {
+      throw new Error("Component must have a fetchRouteData method in order to use routeData mixin.");
+    }
+  },
+  created() {
+    window.addEventListener("keydown", this.$refreshKeyDown);
+    this.fetchRouteData();
+  },
+  beforeRouteUpdate(to, from, next) {
+    next(vm => {
+      vm.fetchRouteData();
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.$refreshKeyDown);
+  },
+};
+
+},{}],70:[function(require,module,exports){
 'use strict';
 
 const exampleSchema = {
@@ -1418,7 +2960,12 @@ module.exports = {
       _getElements(this).forEach($el => {
         $el._validate(null, $el);
       });
-      return !this.$hasErrors;
+
+      const invalidChildren = this.$children.map($child => {
+        if ($child.$isValid) return $child.$isValid();
+      });
+
+      return !this.$hasErrors && !invalidChildren.includes(false);
     },
 
     $validate(ev, el) {
@@ -1426,41 +2973,41 @@ module.exports = {
       const name = $el.getAttribute('name');
       const rules = this.validate[name];
 
-      Object.keys(rules).filter(key => key != 'errors').forEach(key => {
-        let isValid = false;
+      Object.keys(rules)
+        .filter(key => key != 'errors')
+        .forEach(key => {
+          let isValid = false;
 
-        // no need to validate if the field is empty, required should handle that...
-        if (!checkEvenBlank.includes(key) && !this.$required($el.value)) {
-          isValid = true;
-        } else {
-
-          if (typeof rules[key] == 'function') {
-            isValid = rules[key]($el.value);
+          // no need to validate if the field is empty, required should handle that...
+          if (!checkEvenBlank.includes(key) && !this.$required($el.value)) {
+            isValid = true;
           } else {
-            isValid = this[`$${key}`]($el.value, rules[key]);
+
+            if (typeof rules[key] == 'function') {
+              isValid = rules[key]($el.value);
+            } else {
+              isValid = this[`$${key}`]($el.value, rules[key]);
+            }
+
           }
 
-        }
+          this.$removeError(name, key);
 
-        this.$removeError(name, key);
+          if (!isValid) {
+            rules.errors.push({
+              key: key,
+              msg: this.$translate(key, [rules[key]]),
+              value: rules[key]
+            });
 
-        if (!isValid) {
-          rules.errors.push({
-            key: key,
-            msg: this.$translate(key, [rules[key]]),
-            value: rules[key]
-          });
+            $el.classList.add('error');
+            $el.parentElement.classList.add('error');
+          }
 
-          $el.classList.add('error');
-          $el.parentElement.classList.add('error');
-        }
-
-        // after validattion hooks for complicated ones like eitherOr...
-        if (typeof this[`$${key}Hook`] == 'function') {
-          this[`$${key}Hook`](isValid, $el, rules[key]);
-        }
-
-      });
+          // after validattion hooks for complicated ones like eitherOr...
+          const afterHookFn = this[`$${key}Hook`];
+          if (typeof afterHookFn == 'function') afterHookFn(isValid, $el, rules[key]);
+        });
 
     },
 
@@ -1491,7 +3038,7 @@ module.exports = {
     $errors() {
       const errors = {};
 
-      Object.keys(this.validate).forEach(key => {
+      _getFieldKeys(this.validate).forEach(key => {
         if (this.validate[key].errors && this.validate[key].errors.length > 0) {
           errors[key] = this.validate[key].errors;
         }
@@ -1501,33 +3048,43 @@ module.exports = {
     },
 
     $hasErrors() {
-      return Object.keys(this.validate).some(key => {
-        return this.validate[key].errors && this.validate[key].errors.length > 0;
-      });
+      return _getFieldKeys(this.validate)
+        .some(key => {
+          return this.validate[key].errors && this.validate[key].errors.length > 0;
+        });
     },
 
   }
 };
 
 
+function _getFieldKeys(obj) {
+  return Object.keys(obj).filter(key => key != 'hasChildErrors');
+}
+
 function _getElements(inst) {
-  return Object.keys(inst.validate).map(key => {
-    const $field = inst.$el.querySelector(`*[name="${key}"]`);
+  return _getFieldKeys(inst.validate).map(key => {
+    const $fields = Array.from(inst.$el.querySelectorAll(`*[name="${key}"]`));
 
     if (!inst.validate[key].errors) {
       Vue.set(inst.validate[key], 'errors', []);
     }
 
-    if (!$field) {
+    if ($fields.length == 0) {
       console.warn(`Validator found no DOM element matching *[name="${key}"] it has been removed from the obj`);
       Vue.delete(inst.validate, key);
-      return;
+      return null;
     }
-    return $field;
-  }).filter($field => $field != undefined );
+
+    return $fields;
+  })
+  .reduce((a, b) => {
+    return a.concat(b);
+  }, [])
+  .filter($field => $field != null );
 }
 
-},{"./rules":53}],53:[function(require,module,exports){
+},{"./rules":71}],71:[function(require,module,exports){
 'use strict';
 
 
@@ -1583,7 +3140,117 @@ module.exports = {
   }
 };
 
-},{}],54:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
+(function (factory) {
+  if (typeof exports == 'object') {
+    module.exports = factory();
+  } else if ((typeof define == 'function') && define.amd) {
+    define(factory);
+  }
+}(function () {
+
+  var isBuiltIn = (function () {
+    var built_ins = [
+      Object,
+      Function,
+      Array,
+      String,
+      Boolean,
+      Number,
+      Date,
+      RegExp,
+      Error
+    ];
+    var built_ins_length = built_ins.length;
+
+    return function (_constructor) {
+      for (var i = 0; i < built_ins_length; i++) {
+        if (built_ins[i] === _constructor) {
+          return true;
+        }
+      }
+      return false;
+    };
+  })();
+
+  var stringType = (function () {
+    var _toString = ({}).toString;
+
+    return function (obj) {
+      // [object Blah] -> Blah
+      var stype = _toString.call(obj).slice(8, -1);
+
+      if ((obj === null) || (obj === undefined)) {
+        return stype.toLowerCase();
+      }
+
+      var ctype = of(obj);
+
+      if (ctype && !isBuiltIn(ctype)) {
+        return ctype.name;
+      } else {
+        return stype;
+      }
+    };
+  })();
+
+  function of (obj) {
+    if ((obj === null) || (obj === undefined)) {
+      return obj;
+    } else {
+      return obj.constructor;
+    }
+  }
+
+  function is (obj, test) {
+    var typer = (of(test) === String) ? stringType : of;
+    return (typer(obj) === test);
+  }
+
+  function instance (obj, test) {
+    return (obj instanceof test);
+  }
+
+  function extension (_Extension, _Base) {
+    return instance(_Extension.prototype, _Base);
+  }
+
+  function any (obj, tests) {
+    if (!is(tests, Array)) {
+      throw ("Second argument to .any() should be array")
+    }
+    for (var i = 0; i < tests.length; i++) {
+      var test = tests[i];
+      if (is(obj, test)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  var exports = function (obj, type) {
+    if (arguments.length == 1) {
+      return of(obj);
+    } else {
+      if (is(type, Array)) {
+        return any(obj, type);
+      } else {
+        return is(obj, type);
+      }
+    }
+  }
+
+  exports.instance  = instance;
+  exports.string    = stringType;
+  exports.of        = of;
+  exports.is        = is;
+  exports.any       = any;
+  exports.extension = extension;
+  return exports;
+
+}));
+
+},{}],73:[function(require,module,exports){
 (function (process){
 /**
   * vue-router v2.2.0
@@ -3866,7 +5533,7 @@ if (inBrowser && window.Vue) {
 module.exports = VueRouter;
 
 }).call(this,require('_process'))
-},{"_process":1}],55:[function(require,module,exports){
+},{"_process":1}],74:[function(require,module,exports){
 (function (global){
 /*!
  * Vue.js v2.1.10
@@ -12438,7 +14105,7 @@ return Vue$3;
 })));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],56:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 exports.sync = function (store, router, options) {
   var moduleName = (options || {}).moduleName || 'route'
 
@@ -12495,7 +14162,7 @@ function cloneRoute (to, from) {
   return Object.freeze(clone)
 }
 
-},{}],57:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 /**
  * vuex v2.1.1
  * (c) 2016 Evan You
@@ -13257,4 +14924,4 @@ var index = {
 return index;
 
 })));
-},{}]},{},[6]);
+},{}]},{},[9]);
